@@ -124,8 +124,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hubbie/modules/main/view/MainFragment.kt">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="268">
-                  <caret line="207" column="44" lean-forward="true" selection-start-line="207" selection-end-line="208" />
+                <state relative-caret-position="336">
+                  <caret line="211" selection-start-line="211" selection-end-line="211" />
                 </state>
               </provider>
             </entry>
@@ -301,7 +301,7 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Hubbie-release" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -360,7 +360,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-12" />
     <option name="y" value="-12" />
     <option name="width" value="2583" />
@@ -372,17 +372,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Hubbie" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Hubbie" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="AndroidView" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -455,10 +445,21 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Hubbie" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hubbie" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable-v24" />
     <property name="last_opened_file_path" value="D:/Thesis/EsptouchForAndroid/esptouch/build/outputs/aar/esptouch-debug.aar" />
@@ -605,7 +606,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1721" height="935" extended-state="6" />
+    <frame x="-7" y="-7" width="1721" height="935" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.16496086" />
@@ -618,12 +620,12 @@
       <window_info id="Capture Tool" order="8" />
       <window_info anchor="bottom" id="Debug" order="0" />
       <window_info anchor="bottom" id="Run" order="1" weight="0.12355212" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="2" sideWeight="0.49946696" visible="true" weight="0.36737236" />
+      <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.49946696" weight="0.36737236" />
       <window_info anchor="bottom" id="Logcat" order="3" sideWeight="0.49969897" weight="0.0373599" />
       <window_info anchor="bottom" id="TODO" order="4" />
       <window_info anchor="bottom" id="Terminal" order="5" />
       <window_info anchor="bottom" id="Event Log" order="6" sideWeight="0.500301" side_tool="true" weight="0.5479452" />
-      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.6869356" weight="0.3237858" />
+      <window_info anchor="bottom" id="Build" order="7" sideWeight="0.6869356" visible="true" weight="0.3237858" />
       <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Find" order="9" sideWeight="0.4989339" weight="0.27193934" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" />
@@ -1098,8 +1100,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/hubbie/modules/main/view/MainFragment.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="207" column="44" lean-forward="true" selection-start-line="207" selection-end-line="208" />
+        <state relative-caret-position="336">
+          <caret line="211" selection-start-line="211" selection-end-line="211" />
         </state>
       </provider>
     </entry>
