@@ -38,7 +38,6 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
 
     private lateinit var tvTitle: TextView
 
-    private lateinit var mTabLayout: TabLayout
     private lateinit var mViewPager: ViewPager
 
     private lateinit var llAdd: LinearLayout
@@ -128,8 +127,6 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
                     SectionsPagerAdapter(fragmentManager!!, 1)
             }
         }
-
-
 
         LinearLayoutSetup(v)
 
