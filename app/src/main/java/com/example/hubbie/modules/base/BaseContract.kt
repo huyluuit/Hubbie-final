@@ -5,6 +5,8 @@ interface BaseContract {
     interface BaseView {
         fun showLoading()
         fun dismissLoading()
+        fun showProcessLoading(message: String)
+        fun dismissProcessLoading()
     }
 
     interface BasePresenter {

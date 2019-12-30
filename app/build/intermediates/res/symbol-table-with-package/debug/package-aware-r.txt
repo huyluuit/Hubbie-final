@@ -1247,7 +1247,10 @@ id browser_actions_menu_item_text
 id browser_actions_menu_items
 id browser_actions_menu_view
 id btnBack
+id btnCancel
+id btnOk
 id btnRegister
+id btnStartSmartConfig
 id button
 id buttonPanel
 id cancel_action
@@ -1294,6 +1297,7 @@ id etEmail
 id etFullname
 id etPhone
 id etPwd
+id etSsid
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -1480,6 +1484,10 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id tvBSSID
+id tvIp
+id tvProcessMessage
+id tvState
 id unchecked
 id uniform
 id unlabeled
@@ -1571,11 +1579,13 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout fab_layout
+layout fragment_add_device_dialog
 layout fragment_forgotpwd
 layout fragment_loading
 layout fragment_login
 layout fragment_main
 layout fragment_my_info
+layout fragment_process_dialog
 layout fragment_register
 layout fragment_room
 layout fragment_statistics
@@ -1663,6 +1673,8 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string configure_result_success
+string configure_result_success_item
 string confirmPwd_empty
 string control_tab_title_1
 string control_tab_title_2

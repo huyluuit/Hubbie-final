@@ -1188,6 +1188,10 @@
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\72fed70f991a6e5ae6fc40bb55568496\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
     },
     {
+        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_add_device_dialog.xml.flat",
+        "source": "D:\\Projects\\Hubbie\\app\\src\\main\\res\\layout\\fragment_add_device_dialog.xml"
+    },
+    {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baseline_wb_light_24.xml.flat",
         "source": "D:\\Projects\\Hubbie\\app\\src\\main\\res\\drawable\\baseline_wb_light_24.xml"
     },
@@ -2270,6 +2274,10 @@
     {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\72fed70f991a6e5ae6fc40bb55568496\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_process_dialog.xml.flat",
+        "source": "D:\\Projects\\Hubbie\\app\\src\\main\\res\\layout\\fragment_process_dialog.xml"
     },
     {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",

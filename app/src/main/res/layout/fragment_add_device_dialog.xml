@@ -42,13 +42,14 @@
 
         <Button
             android:id="@+id/btnStartSmartConfig"
-            android:enabled="false"
             android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Start Smartconfig"/>
 
         <TextView
+            android:id="@+id/tvState"
+            android:visibility="invisible"
             android:text="State"
             android:textSize="17dp"
             android:textStyle="bold"

@@ -12,7 +12,7 @@ object FirestoreUserUtil {
 
     private const val USER_DISABLE =
         com.example.hubbie.BuildConfig.APPLICATION_ID + ".USER_HAS_DISABLE"
-    private const val COLLECTION_USER = "User"
+    const val COLLECTION_USER = "User"
     private val db = FirebaseFirestore.getInstance().collection(COLLECTION_USER)
 
     /* User DB Structure

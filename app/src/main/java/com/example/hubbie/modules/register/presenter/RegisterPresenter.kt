@@ -85,7 +85,8 @@ class RegisterPresenter(private val fragment: RegisterFragment) : IRegister.Pres
     ) {
 
         if (validateUser(email, phone, fullName, pwd, confirmPwd)) {
-            user = User(true, GeneralUtils.getTimeId(), email, phone, fullName, pwd, "client")
+            user =
+                User(true, GeneralUtils.getTimeId(), email, phone, fullName, pwd, "client", adminId)
             fragment.showLoading()
             if (adminId.isNotEmpty()) {
                 interactor?.validateAdminId(adminId)

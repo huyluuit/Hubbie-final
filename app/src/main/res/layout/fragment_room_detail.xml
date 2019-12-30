@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="#5FB9FF"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:background="@drawable/baseline_arrow_back_24"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="30dp"
+        android:scaleX="0.6"
+        android:scaleY="0.6"
+        android:layout_width="50dp"
+        android:layout_height="50dp"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:background="@drawable/ic_room"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvRoomName"
+                android:layout_gravity="center"
+                android:textColor="@android:color/white"
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textSize="17dp"
+                android:text="RoomName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <!-- Loadname 1 -->
+
+            <!-- Loadname 2 -->
+            <LinearLayout
+                android:id="@+id/llLoad1Frame"
+                android:layout_width="250dp"
+                android:layout_height="350dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/border_item"
+                android:gravity="top|center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvLoadName1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:text="Load Name1" />
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginVertical="20dp"
+                    android:background="@drawable/ic_device" />
+
+                <Switch
+                    android:id="@+id/swLoad1"
+                    android:checked="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/tvCurrentLoad1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/border_tv"
+                    android:padding="10dp"
+                    android:text="Dòng điện: 3.5A" />
+
+                <TextView
+                    android:id="@+id/tvPowerLoad1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginVertical="10dp"
+                    android:background="@drawable/border_tv"
+                    android:padding="10dp"
+                    android:text="Công suất: 0.7KW" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llLoad2Frame"
+                android:orientation="vertical"
+                android:layout_marginVertical="20dp"
+                android:background="@drawable/border_item"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="top|center"
+                android:layout_width="250dp"
+                android:layout_height="350dp">
+
+                <TextView
+                    android:id="@+id/tvLoadName2"
+                    android:layout_marginVertical="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Load Name2"/>
+
+                <ImageView
+                    android:layout_marginVertical="20dp"
+                    android:background="@drawable/ic_device"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"/>
+
+                <Switch
+                    android:id="@+id/swLoad2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tvCurrentLoad2"
+                    android:text="Dòng điện: "
+                    android:layout_margin="20dp"
+                    android:padding="10dp"
+                    android:background="@drawable/border_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tvPowerLoad2"
+                    android:text="Dòng điện: "
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:padding="10dp"
+                    android:background="@drawable/border_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <!-- Loadname 3 -->
+            <LinearLayout
+                android:id="@+id/llLoad3Frame"
+                android:orientation="vertical"
+                android:background="@drawable/border_item"
+                android:layout_marginVertical="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:gravity="top|center"
+                android:layout_width="250dp"
+                android:layout_height="350dp">
+
+                <TextView
+                    android:id="@+id/tvLoadName3"
+                    android:layout_marginVertical="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Load Name3"/>
+
+                <ImageView
+                    android:layout_marginVertical="20dp"
+                    android:background="@drawable/ic_device"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"/>
+
+                <Switch
+                    android:id="@+id/swLoad3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tvCurrentLoad3"
+                    android:text="Dòng điện: "
+                    android:layout_margin="20dp"
+                    android:padding="10dp"
+                    android:background="@drawable/border_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tvPowerLoad3"
+                    android:text="Dòng điện: "
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:padding="10dp"
+                    android:background="@drawable/border_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

@@ -12,13 +12,20 @@
 package com.example.hubbie.modules.base.view
 
 import androidx.fragment.app.Fragment
-import com.example.hubbie.dialog.LoadingFragment
+import com.example.hubbie.modules.dialog.LoadingFragment
 import com.example.hubbie.modules.base.BaseContract
 
 /**
  * Created by trangpham on 16/8/2019.
  */
-abstract class BaseFragment : Fragment(), BaseContract.BaseView {
+open class BaseFragment : Fragment(), BaseContract.BaseView {
+    override fun showProcessLoading(message: String) {
+
+    }
+
+    override fun dismissProcessLoading() {
+
+    }
 
     private var loadingFragment: LoadingFragment? = null
 

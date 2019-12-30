@@ -18,6 +18,7 @@ import com.example.hubbie.R
 import com.example.hubbie.adapter.SectionsPagerAdapter
 import com.example.hubbie.entities.shared.AccountPreferences
 import com.example.hubbie.modules.base.view.BaseFragment
+import com.example.hubbie.modules.dialog.FragmentAddDeviceDialog
 import com.example.hubbie.utilis.GeneralUtils
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -141,6 +142,8 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
         NavigationViewSetup(v)
 
         BottomNavigationViewSetup(v)
+        val user = AccountPreferences(context!!).getBaseAccount().uid
+        FragmentAddDeviceDialog(user!!).show(fragmentManager!!, "")
         return v
     }
 

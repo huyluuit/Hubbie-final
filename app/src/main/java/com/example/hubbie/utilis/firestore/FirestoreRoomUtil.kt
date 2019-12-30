@@ -36,9 +36,9 @@ object FirestoreRoomUtil {
                         if (roomControl != null) {
                             if (roomControl.validate!!) {
                                 db.document(roomControl.id.toString()).get()
-                                    .addOnCompleteListener { task ->
-                                        if (task.isSuccessful && task.result != null) {
-                                            val room = task.result!!.toObject(Room::class.java)
+                                    .addOnCompleteListener { task1 ->
+                                        if (task1.isSuccessful && task.result != null) {
+                                            val room = task1.result!!.toObject(Room::class.java)
                                             if (room != null) {
                                                 roomList.add(room)
                                                 if (room.id == docs.last().id) {
@@ -76,7 +76,7 @@ object FirestoreRoomUtil {
     fun setRoom(room: Room?): Completable {
         return Completable.create {
             if (room != null) {
-                db
+                db.document()
             }
         }
     }
