@@ -116,11 +116,14 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
             }
 
             getString(R.string.room_admin) -> {
+                mBottomNavigationView.menu.removeItem(R.id.bottom_nav_device)
                 mSectionsPagerAdapter =
                     SectionsPagerAdapter(fragmentManager!!, 2)
             }
 
             getString(R.string.client) -> {
+                mBottomNavigationView.menu.removeItem(R.id.bottom_nav_device)
+                mBottomNavigationView.menu.removeItem(R.id.bottom_nav_user)
                 mSectionsPagerAdapter =
                     SectionsPagerAdapter(fragmentManager!!, 1)
             }
@@ -248,7 +251,7 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
             R.id.bottom_nav_user -> {
                 mViewPager.setCurrentItem(1)
             }
-            R.id.bottom_nav_hw -> {
+            R.id.bottom_nav_device -> {
                 mViewPager.setCurrentItem(2)
             }
             //R.id.bottom_nav_statistic -> { mViewPager.setCurrentItem(3) }

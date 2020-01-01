@@ -13,15 +13,16 @@ object ConvertDataUtils {
 
         if (data != null) {
             val isActive: Boolean? = data["active"] as Boolean
-            val uid: String? = data["uid"] as String
-            val email: String? = data["email"] as String
-            val phone: String? = data["phone"] as String
-            val fullName: String? = data["fullName"] as String
-            val pwd: String? = data["pwd"] as String
-            val role: String? = data["role"] as String
+            val uid: String? = data["uid"].toString()
+            val email: String? = data["email"].toString()
+            val phone: String? = data["phone"].toString()
+            val fullName: String? = data["fullName"].toString()
+            val pwd: String? = data["pwd"].toString()
+            val role: String? = data["role"].toString()
+            val roomId: String? = data["roomId"].toString()
 
             if (isActive != null && uid != null && email != null && phone != null && fullName != null && pwd != null && role != null) {
-                user = User(isActive, uid, email, phone, fullName, pwd, role)
+                user = User(isActive, uid, email, phone, fullName, pwd, role, roomId)
             }
         }
 

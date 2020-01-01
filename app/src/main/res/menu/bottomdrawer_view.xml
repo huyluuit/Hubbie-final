@@ -14,7 +14,7 @@
             android:title="User"  />
 
         <item
-            android:id="@+id/bottom_nav_hw"
+            android:id="@+id/bottom_nav_device"
             android:icon="@drawable/baseline_router_24"
             android:checked="false"
             android:title="Device"  />

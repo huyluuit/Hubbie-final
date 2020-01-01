@@ -220,6 +220,10 @@
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\33e4044b3f2121bb3136bcee560286e7\\core-1.1.0\\res\\layout\\notification_template_part_time.xml"
     },
     {
+        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_add_room_dialog.xml.flat",
+        "source": "D:\\Projects\\Hubbie\\app\\src\\main\\res\\layout\\fragment_add_room_dialog.xml"
+    },
+    {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_avd_hide_password.xml.flat",
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\65d098364c2861661260612a8aae1a1b\\material-1.0.0\\res\\drawable-v21\\avd_hide_password.xml"
     },
@@ -628,6 +632,10 @@
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\72fed70f991a6e5ae6fc40bb55568496\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_dark.9.png"
     },
     {
+        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_room_detail.xml.flat",
+        "source": "D:\\Projects\\Hubbie\\app\\src\\main\\res\\layout\\fragment_room_detail.xml"
+    },
+    {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-hdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\72fed70f991a6e5ae6fc40bb55568496\\appcompat-1.1.0\\res\\drawable-ldrtl-hdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
@@ -884,6 +892,10 @@
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\33e4044b3f2121bb3136bcee560286e7\\core-1.1.0\\res\\drawable-hdpi-v4\\notification_bg_normal_pressed.9.png"
     },
     {
+        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable_border_dialog.xml.flat",
+        "source": "D:\\Projects\\Hubbie\\app\\src\\main\\res\\drawable\\border_dialog.xml"
+    },
+    {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_mtrl_chip_checked_black.xml.flat",
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\65d098364c2861661260612a8aae1a1b\\material-1.0.0\\res\\drawable\\ic_mtrl_chip_checked_black.xml"
     },
@@ -1002,6 +1014,10 @@
     {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_search_dropdown_item_icons_2line.xml.flat",
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\72fed70f991a6e5ae6fc40bb55568496\\appcompat-1.1.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_device.xml.flat",
+        "source": "D:\\Projects\\Hubbie\\app\\src\\main\\res\\layout\\item_device.xml"
     },
     {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
@@ -1184,12 +1200,12 @@
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\72fed70f991a6e5ae6fc40bb55568496\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_light.9.png"
     },
     {
-        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\72fed70f991a6e5ae6fc40bb55568496\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
-    },
-    {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_add_device_dialog.xml.flat",
         "source": "D:\\Projects\\Hubbie\\app\\src\\main\\res\\layout\\fragment_add_device_dialog.xml"
+    },
+    {
+        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\72fed70f991a6e5ae6fc40bb55568496\\appcompat-1.1.0\\res\\drawable-xxhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
     },
     {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable_baseline_wb_light_24.xml.flat",
@@ -1234,6 +1250,10 @@
     {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_full_open_on_phone.png.flat",
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\4249006ff5e8aae2ea31d01977de30ba\\play-services-base-17.1.0\\res\\drawable-hdpi-v4\\common_full_open_on_phone.png"
+    },
+    {
+        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_sample.xml.flat",
+        "source": "D:\\Projects\\Hubbie\\app\\src\\main\\res\\layout\\item_sample.xml"
     },
     {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_light_normal.xml.flat",
@@ -1480,6 +1500,10 @@
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\72fed70f991a6e5ae6fc40bb55568496\\appcompat-1.1.0\\res\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
     {
+        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_room.xml.flat",
+        "source": "D:\\Projects\\Hubbie\\app\\src\\main\\res\\layout\\item_room.xml"
+    },
+    {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v23_abc_control_background_material.xml.flat",
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\72fed70f991a6e5ae6fc40bb55568496\\appcompat-1.1.0\\res\\drawable-v23\\abc_control_background_material.xml"
     },
@@ -1654,6 +1678,10 @@
     {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\72fed70f991a6e5ae6fc40bb55568496\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\layout_item_user.xml.flat",
+        "source": "D:\\Projects\\Hubbie\\app\\src\\main\\res\\layout\\item_user.xml"
     },
     {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",

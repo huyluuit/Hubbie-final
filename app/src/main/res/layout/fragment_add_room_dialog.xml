@@ -54,6 +54,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/tvNotify"
                 android:textColor="@android:color/holo_red_light"
                 android:text=" - Chọn mã thiết bên dưới và nhập tên phòng. \n - Click CẬP NHẬT để lưu lại"
                 android:layout_width="match_parent"
@@ -71,7 +72,6 @@
                 android:layout_height="wrap_content"/>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:visibility="visible"
                 android:id="@+id/rvDeviceList"
                 android:layout_marginHorizontal="20dp"
                 android:layout_width="match_parent"
@@ -103,6 +103,7 @@
             </RadioGroup>
 
             <AutoCompleteTextView
+                android:id="@+id/autoTvUserList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"

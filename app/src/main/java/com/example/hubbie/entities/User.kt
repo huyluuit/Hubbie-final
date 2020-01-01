@@ -11,10 +11,12 @@ data class User(
     var fullName: String? = "",
     var pwd: String? = "",
     var role: String? = "",
-    var adminId: String? = ""
+    var adminId: String? = "",
+    var roomId: String? = ""
 ): Parcelable{
     constructor(parcel: Parcel) : this(
         parcel.readValue(Boolean::class.java.classLoader) as? Boolean,
+        parcel.readString(),
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
@@ -34,6 +36,7 @@ data class User(
         parcel.writeString(pwd)
         parcel.writeString(role)
         parcel.writeString(adminId)
+        parcel.writeString(roomId)
     }
 
     override fun describeContents(): Int {
