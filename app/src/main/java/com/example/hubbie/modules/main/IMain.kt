@@ -6,6 +6,8 @@ import com.example.hubbie.modules.base.BaseContract
 
 interface IMain {
     interface Presenter: BaseContract.BasePresenter {
+        fun onMyInfoClicked()
+        fun onChatClick()
         fun itemControlClicked(controlId: Int)
         fun roomItemCliked(roomId: Int)
         fun createRoomClicked()

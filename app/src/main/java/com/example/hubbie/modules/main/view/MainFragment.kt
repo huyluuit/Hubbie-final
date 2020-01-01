@@ -199,7 +199,21 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
         mNavigationView.setNavigationItemSelectedListener { p0: MenuItem ->
             // set item as selected to persist highlight
             p0.isChecked = true
+            when(p0.itemId){
 
+                R.id.nav_my_info -> {
+
+                }
+
+                R.id.nav_chat -> {
+
+                }
+
+                R.id.nav_app_info -> {
+
+                }
+
+            }
             //set ActionBar Title
             tvTitle.setText(p0.title)
             // close drawer when item is tapped
