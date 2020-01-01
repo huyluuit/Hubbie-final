@@ -108,6 +108,7 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
 
         Log.e("User", "User nameDisplay: ${baseUser.fullName} Role: ${baseUser.role}")
 
+        //Check role
         when(baseUser.role){
             getString(R.string.admin) -> {
                 mSectionsPagerAdapter =

@@ -27,6 +27,7 @@
 
                 <EditText
                     android:id="@+id/etDeviceId"
+                    android:focusable="false"
                     android:hint="MÃ THIẾT BỊ"
                     android:textAlignment="center"
                     android:padding="10dp"
@@ -42,7 +43,7 @@
                     android:layout_height="match_parent"/>
 
                 <EditText
-                    android:id="@+id/etPort"
+                    android:id="@+id/etRoomNameDisplay"
                     android:hint="TÊN PHÒNG"
                     android:textAlignment="center"
                     android:padding="10dp"
@@ -51,6 +52,14 @@
                     android:layout_weight="0.9"
                     android:background="@android:color/transparent"/>
             </LinearLayout>
+
+            <TextView
+                android:textColor="@android:color/holo_red_light"
+                android:text=" - Chọn mã thiết bên dưới và nhập tên phòng. \n - Click CẬP NHẬT để lưu lại"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="20dp"/>
 
             <Button
                 android:id="@+id/btnDeviceUpdate"
@@ -64,58 +73,6 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:visibility="visible"
                 android:id="@+id/rvDeviceList"
-                android:layout_marginHorizontal="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <!-- PortName Frame -->
-            <LinearLayout
-                android:background="@drawable/border_tv"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginVertical="10dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/etPortName"
-                    android:hint="TÊN PORT"
-                    android:textAlignment="center"
-                    android:padding="10dp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.9"
-                    android:background="@android:color/transparent"/>
-
-                <View
-                    android:layout_width="2dp"
-                    android:rotation="10"
-                    android:background="@android:color/black"
-                    android:layout_height="match_parent"/>
-
-                <EditText
-                    android:id="@+id/etLoadName"
-                    android:hint="TÊN TẢI"
-                    android:textAlignment="center"
-                    android:padding="10dp"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.9"
-                    android:background="@android:color/transparent"/>
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/btnPortUpdate"
-                android:text="Cập nhật"
-                android:layout_marginVertical="10dp"
-                android:layout_marginHorizontal="20dp"
-                android:background="@drawable/border_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvPortList"
-                android:visibility="visible"
                 android:layout_marginHorizontal="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
