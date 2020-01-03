@@ -3,17 +3,26 @@ package com.example.hubbie.modules.room.interactor
 import com.example.hubbie.entities.Control
 import com.example.hubbie.entities.Room
 import com.example.hubbie.modules.room.IRoom
+import com.example.hubbie.modules.room.view.RoomFragment
+import io.reactivex.disposables.CompositeDisposable
 
-class RoomInteractor : IRoom.Interactor {
-    override fun getRoom(roomId: Int): Room {
+class RoomInteractor(fragment: RoomFragment, callbacks: IRoom.Interactor.Callbacks) : IRoom.Interactor {
+
+    private val compositeDisposable = CompositeDisposable()
+
+    override fun getBaseRooms() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getAllControls(roomId: Int): ArrayList<Control> {
+    override fun onSw1Change(deviceId: String, state: Boolean) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getAllRooms(): ArrayList<Room> {
+    override fun onSw2Change(deviceId: String, state: Boolean) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun onSw3Change(deviceId: String, state: Boolean) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

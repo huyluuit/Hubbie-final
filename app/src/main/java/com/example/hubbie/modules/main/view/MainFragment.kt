@@ -146,8 +146,7 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
         NavigationViewSetup(v)
 
         BottomNavigationViewSetup(v)
-        val user = AccountPreferences(context!!).getBaseAccount().uid
-        FragmentAddDeviceDialog(user!!).show(fragmentManager!!, "")
+
         return v
     }
 

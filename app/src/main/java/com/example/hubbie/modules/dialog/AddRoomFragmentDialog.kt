@@ -12,16 +12,17 @@ import com.example.hubbie.BuildConfig
 import com.example.hubbie.R
 import com.example.hubbie.entities.Room
 import com.example.hubbie.modules.base.view.BaseDialogFragment
+import com.example.hubbie.utilis.GeneralUtils
 
-class AddRoomFragmentDialog : BaseDialogFragment() {
+class AddRoomFragmentDialog(private val callbacks: EditRoomDialogCallbacks) : BaseDialogFragment() {
 
-    companion object{
+    companion object {
 
         private const val ARGS_ROOM = BuildConfig.APPLICATION_ID + ".args.ROOM"
 
-        fun newInstance(room: Room): AddRoomFragmentDialog{
+        fun newInstance(room: Room, callbacks: EditRoomDialogCallbacks): AddRoomFragmentDialog {
 
-            val dialog = AddRoomFragmentDialog()
+            val dialog = AddRoomFragmentDialog(callbacks)
             val bundle = Bundle()
             bundle.putParcelable(ARGS_ROOM, room)
             dialog.arguments = bundle
@@ -29,8 +30,8 @@ class AddRoomFragmentDialog : BaseDialogFragment() {
 
         }
 
-        fun newInstance(): AddRoomFragmentDialog{
-            val dialog = AddRoomFragmentDialog()
+        fun newInstance(callbacks: EditRoomDialogCallbacks): AddRoomFragmentDialog {
+            val dialog = AddRoomFragmentDialog(callbacks)
             return dialog
         }
 
@@ -39,7 +40,6 @@ class AddRoomFragmentDialog : BaseDialogFragment() {
     private lateinit var etDeviceId: EditText
     private lateinit var etRoomName: EditText
 
-    private lateinit var btnUpdate: Button
     private lateinit var btnDeleteRoom: Button
     private lateinit var btnCancel: Button
     private lateinit var btnSaveChanges: Button
@@ -63,30 +63,47 @@ class AddRoomFragmentDialog : BaseDialogFragment() {
         etDeviceId = v.findViewById(R.id.etDeviceId)!!
         etRoomName = v.findViewById(R.id.etRoomNameDisplay)
 
-        btnUpdate = v.findViewById(R.id.btnDeviceUpdate)
         btnDeleteRoom = v.findViewById(R.id.btnDelete)
+        btnDeleteRoom.setOnClickListener {
+            if (room != null) {
+                callbacks.onDeleteRoom(room)
+            }
+        }
         btnCancel = v.findViewById(R.id.btnCancel)
         btnSaveChanges = v.findViewById(R.id.btnSave)
+        btnSaveChanges.setOnClickListener {
+
+            val nameDisplay = etRoomName.text.toString()
+            val deviceId = etDeviceId.text.toString()
+
+            if (validateUserInput(nameDisplay, deviceId)) {
+                if (rg.checkedRadioButtonId == R.id.rdCommon) {
+                    callbacks.onSaveRoom(Room(GeneralUtils.getTimeId(), nameDisplay, deviceId, true))
+                } else if (rg.checkedRadioButtonId == R.id.rdPrivate) {
+                    callbacks.onSaveRoom(Room(GeneralUtils.getTimeId(), nameDisplay, deviceId, false))
+                }
+            }
+
+        }
 
         rg = v.findViewById(R.id.rgRoomRole)
 
         rvRoomList = v.findViewById(R.id.rvDeviceList)
 
-        when(room){
+        when (room) {
             //create new
             null -> {
-
+                btnDeleteRoom.visibility = View.GONE
             }
             // edit room
             else -> {
                 tvNotify.visibility = View.GONE
-                btnUpdate.visibility = View.GONE
                 rvRoomList.visibility = View.GONE
 
                 etDeviceId.setText(room.deviceId)
                 etRoomName.setText(room.nameDisplay)
 
-                when(room.role){
+                when (room.role) {
                     // private
                     false -> {
                         rg.check(R.id.rdPrivate)
@@ -100,14 +117,32 @@ class AddRoomFragmentDialog : BaseDialogFragment() {
             }
         }
 
-
         val dialog = AlertDialog.Builder(activity).setView(v).create()
         dialog.window?.apply {
             setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         }
 
         return dialog
+    }
 
+    private fun validateUserInput(nameDisplay: String, deviceId: String): Boolean {
+
+        if (nameDisplay.isEmpty()) {
+            GeneralUtils.showingToast(context, "Tên phòng còn trống!")
+            return false
+        }
+
+        if (deviceId.isEmpty()) {
+            GeneralUtils.showingToast(context, "Mã thiết bị còn trống!")
+            return false
+        }
+
+        return true
+    }
+
+    interface EditRoomDialogCallbacks {
+        fun onDeleteRoom(room: Room)
+        fun onSaveRoom(room: Room)
     }
 
 }

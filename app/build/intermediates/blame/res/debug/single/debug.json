@@ -36,12 +36,12 @@
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\1480b8f0a0061598d394a07e95f2b5e4\\media-1.0.0\\res\\layout\\notification_template_media.xml"
     },
     {
-        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_radio_on_mtrl.xml.flat",
-        "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\72fed70f991a6e5ae6fc40bb55568496\\appcompat-1.1.0\\res\\drawable\\btn_radio_on_mtrl.xml"
-    },
-    {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_user.xml.flat",
         "source": "D:\\Projects\\Hubbie\\app\\src\\main\\res\\layout\\fragment_user.xml"
+    },
+    {
+        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable_btn_radio_on_mtrl.xml.flat",
+        "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\72fed70f991a6e5ae6fc40bb55568496\\appcompat-1.1.0\\res\\drawable\\btn_radio_on_mtrl.xml"
     },
     {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\anim_design_snackbar_out.xml.flat",
@@ -72,12 +72,12 @@
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\723cba1f6c69866cfaa394f68ea4ec2f\\firebase-inappmessaging-display-19.0.1\\res\\drawable-hdpi-v4\\image_placeholder.png"
     },
     {
-        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_icon_group.xml.flat",
-        "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\33e4044b3f2121bb3136bcee560286e7\\core-1.1.0\\res\\layout-v21\\notification_template_icon_group.xml"
-    },
-    {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable_mtrl_tabs_default_indicator.xml.flat",
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\65d098364c2861661260612a8aae1a1b\\material-1.0.0\\res\\drawable\\mtrl_tabs_default_indicator.xml"
+    },
+    {
+        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_icon_group.xml.flat",
+        "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\33e4044b3f2121bb3136bcee560286e7\\core-1.1.0\\res\\layout-v21\\notification_template_icon_group.xml"
     },
     {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_register.png.flat",

@@ -1251,7 +1251,6 @@ id browser_actions_menu_view
 id btnBack
 id btnCancel
 id btnDelete
-id btnDeviceUpdate
 id btnOk
 id btnRegister
 id btnSave
@@ -1339,6 +1338,7 @@ id info
 id invisible
 id italic
 id item_touch_helper_previous_elevation
+id ivEditRoom
 id labeled
 id largeLabel
 id left
@@ -1425,8 +1425,8 @@ id rgRoomRole
 id right
 id right_icon
 id right_side
-id room_rv
 id rvDeviceList
+id rvRoom
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type

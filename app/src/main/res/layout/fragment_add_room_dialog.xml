@@ -29,6 +29,8 @@
                     android:id="@+id/etDeviceId"
                     android:focusable="false"
                     android:hint="MÃ THIẾT BỊ"
+                    android:focusableInTouchMode="false"
+                    android:enabled="false"
                     android:textAlignment="center"
                     android:padding="10dp"
                     android:layout_width="0dp"
@@ -56,20 +58,11 @@
             <TextView
                 android:id="@+id/tvNotify"
                 android:textColor="@android:color/holo_red_light"
-                android:text=" - Chọn mã thiết bên dưới và nhập tên phòng. \n - Click CẬP NHẬT để lưu lại"
+                android:text=" - Chọn mã thiết bị trống tên phòng bên dưới\n - Nhập tên phòng"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
                 android:layout_marginHorizontal="20dp"/>
-
-            <Button
-                android:id="@+id/btnDeviceUpdate"
-                android:text="Cập nhật"
-                android:layout_marginVertical="10dp"
-                android:layout_marginHorizontal="20dp"
-                android:background="@drawable/border_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvDeviceList"

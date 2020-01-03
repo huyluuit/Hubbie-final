@@ -3,6 +3,7 @@ package com.example.hubbie.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.Switch
 import android.widget.TextView
@@ -10,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.hubbie.R
 import com.example.hubbie.entities.Room
 
-class RoomAdapter(private val data: ArrayList<Room>, private val listener: Callbacks) :
+class RoomAdapter(private val data: ArrayList<Room>, private val listener: OnItemClickListener) :
     RecyclerView.Adapter<RoomAdapter.DataViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
         return DataViewHolder(
@@ -37,12 +38,17 @@ class RoomAdapter(private val data: ArrayList<Room>, private val listener: Callb
             holder.bindSw2Click(position, isChecked, listener)
         }
         holder.swLoad3.setOnCheckedChangeListener { buttonView, isChecked ->
-            holder.bindSw1Click(position, isChecked, listener)
+            holder.bindSw3Click(position, isChecked, listener)
         }
 
         holder.itemView.setOnClickListener {
             holder.bindItemClick(position, listener)
         }
+
+        holder.ivEditRoom.setOnClickListener{
+            holder.bindEditRoomClick(position, listener)
+        }
+
 
     }
 
@@ -53,6 +59,7 @@ class RoomAdapter(private val data: ArrayList<Room>, private val listener: Callb
         val tvLoadname1: TextView
         val tvLoadname2: TextView
         val tvLoadname3: TextView
+        val ivEditRoom: ImageView
         val swLoad1: Switch
         val swLoad2: Switch
         val swLoad3: Switch
@@ -63,6 +70,7 @@ class RoomAdapter(private val data: ArrayList<Room>, private val listener: Callb
         init {
             tvRoomName = itemView.findViewById(R.id.tvRoomName)
             tvTotalPower = itemView.findViewById(R.id.tvTotalPower)
+            ivEditRoom = itemView.findViewById(R.id.ivEditRoom)
             llLoad1 = itemView.findViewById(R.id.llLoad1Frame)
             llLoad2 = itemView.findViewById(R.id.llLoad2Frame)
             llLoad3 = itemView.findViewById(R.id.llLoad3Frame)
@@ -74,25 +82,30 @@ class RoomAdapter(private val data: ArrayList<Room>, private val listener: Callb
             swLoad3 = itemView.findViewById(R.id.swLoad3)
         }
 
-        fun bindItemClick(position: Int, listener: Callbacks) {
+        fun bindItemClick(position: Int, listener: OnItemClickListener) {
             listener.onItemClick(position)
         }
 
-        fun bindSw1Click(position: Int, result: Boolean, listener: Callbacks) {
+        fun bindSw1Click(position: Int, result: Boolean, listener: OnItemClickListener) {
             listener.onSw1Click(position, result)
         }
 
-        fun bindSw2Click(position: Int, result: Boolean, listener: Callbacks) {
+        fun bindSw2Click(position: Int, result: Boolean, listener: OnItemClickListener) {
             listener.onSw2Click(position, result)
         }
 
-        fun bindSw3Click(position: Int, result: Boolean, listener: Callbacks) {
+        fun bindSw3Click(position: Int, result: Boolean, listener: OnItemClickListener) {
             listener.onSw3Click(position, result)
+        }
+
+        fun bindEditRoomClick(position: Int, listener: OnItemClickListener){
+            listener.onEditRoom(position)
         }
     }
 
-    interface Callbacks {
+    interface OnItemClickListener {
         fun onItemClick(position: Int)
+        fun onEditRoom(position: Int)
         fun onSw1Click(position: Int, result: Boolean)
         fun onSw2Click(position: Int, result: Boolean)
         fun onSw3Click(position: Int, result: Boolean)
