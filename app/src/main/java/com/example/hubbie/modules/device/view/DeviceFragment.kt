@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.hubbie.R
+import com.example.hubbie.modules.main.IMain
 
-class DeviceFragment : Fragment(){
+class DeviceFragment(private val listener: IMain.View) : Fragment(){
 
     override fun onCreateView(
         inflater: LayoutInflater,

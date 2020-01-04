@@ -3,6 +3,7 @@ package com.example.hubbie
 import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.example.hubbie.entities.shared.AccountPreferences
 import com.example.hubbie.modules.login.view.LoginFragment
 import com.example.hubbie.modules.main.view.MainFragment
@@ -29,5 +30,12 @@ class MainActivity : AppCompatActivity() {
             //go to login fragment
             transaction.replace(frameLayout.id, LoginFragment()).commit()
         }
+    }
+
+    fun changeFragment(fragment: Fragment){
+        val ft = supportFragmentManager.beginTransaction()
+        ft.add(R.id.main_container_frame, fragment)
+        ft.addToBackStack(fragment::class.java.simpleName)
+        ft.commit()
     }
 }

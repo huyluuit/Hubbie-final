@@ -645,9 +645,11 @@ color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
 color colorAccent
+color colorBlack
 color colorItem
 color colorPrimary
 color colorPrimaryDark
+color colorWhite
 color common_google_signin_btn_text_dark
 color common_google_signin_btn_text_dark_default
 color common_google_signin_btn_text_dark_disabled
@@ -1074,6 +1076,8 @@ drawable baseline_settings_remote_24
 drawable baseline_statistic_24
 drawable baseline_view_menu_24
 drawable baseline_wb_light_24
+drawable bg_text_message_receiver
+drawable bg_text_message_sender
 drawable border
 drawable border_button
 drawable border_circle
@@ -1143,6 +1147,7 @@ drawable ic_state
 drawable ic_statistic
 drawable image_placeholder
 drawable line
+drawable man
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable navigation_empty_icon
@@ -1159,8 +1164,13 @@ drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable rounded_layout
+drawable send
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+font avenir_book
+font avenir_heavy
+font avenir_medium
+font avenir_roman
 id ALT
 id CTRL
 id FUNCTION
@@ -1291,6 +1301,7 @@ id dimensions
 id direct
 id disableHome
 id edit_query
+id edit_text_input_message
 id end
 id end_padder
 id enterAlways
@@ -1333,6 +1344,8 @@ id image
 id image_content_root
 id image_root
 id image_view
+id img_send
+id img_user
 id include
 id info
 id invisible
@@ -1341,6 +1354,10 @@ id item_touch_helper_previous_elevation
 id ivEditRoom
 id labeled
 id largeLabel
+id layout_edit_text_message
+id layout_info_receiver
+id layout_input_text
+id layout_show_message
 id left
 id light
 id line1
@@ -1427,6 +1444,8 @@ id right_icon
 id right_side
 id rvDeviceList
 id rvRoom
+id rv_list_chat
+id rv_message
 id save_image_matrix
 id save_non_transition_alpha
 id save_scale_type
@@ -1527,6 +1546,11 @@ id tvTemp
 id tvTotalPower
 id tvUserNameDisplay
 id tvUserState
+id txt_label
+id txt_message
+id txt_name
+id txt_name_receiver
+id txt_role
 id unchecked
 id uniform
 id unlabeled
@@ -1625,9 +1649,11 @@ layout fab_layout
 layout fragment_add_device_dialog
 layout fragment_add_room_dialog
 layout fragment_forgotpwd
+layout fragment_list_chat
 layout fragment_loading
 layout fragment_login
 layout fragment_main
+layout fragment_message
 layout fragment_my_info
 layout fragment_process_dialog
 layout fragment_register
@@ -1637,6 +1663,8 @@ layout fragment_statistics
 layout fragment_user
 layout image
 layout item_device
+layout item_list_chat
+layout item_message
 layout item_room
 layout item_sample
 layout item_user

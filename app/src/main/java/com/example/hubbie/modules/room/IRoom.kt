@@ -2,6 +2,7 @@ package com.example.hubbie.modules.room
 
 import com.example.hubbie.entities.Control
 import com.example.hubbie.entities.Room
+import com.example.hubbie.entities.User
 import java.util.*
 import kotlin.collections.ArrayList
 

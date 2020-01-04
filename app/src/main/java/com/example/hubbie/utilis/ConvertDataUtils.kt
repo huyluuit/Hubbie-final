@@ -2,6 +2,7 @@ package com.example.hubbie.utilis
 
 import com.example.hubbie.entities.Device
 import com.example.hubbie.entities.DeviceSorted
+import com.example.hubbie.entities.Message
 import com.example.hubbie.entities.User
 
 object ConvertDataUtils {
@@ -20,14 +21,28 @@ object ConvertDataUtils {
             val pwd: String? = data["pwd"].toString()
             val role: String? = data["role"].toString()
             val roomId: String? = data["roomId"].toString()
+            val adminId: String? = data["adminId"].toString()
 
-            if (isActive != null && uid != null && email != null && phone != null && fullName != null && pwd != null && role != null) {
-                user = User(isActive, uid, email, phone, fullName, pwd, role, roomId)
+            if (isActive != null && uid != null && email != null && phone != null && fullName != null && pwd != null && role != null && adminId != null) {
+                user = User(isActive, uid, email, phone, fullName, pwd, role, adminId, roomId)
             }
         }
 
         return user
 
+    }
+
+    fun convertDataToMessage(data: Map<String, Any>?): Message {
+        val message = Message()
+        if (data != null) {
+            val content: String? = data["message"].toString()
+            val time: String? = data["time"].toString()
+            val uid: String? = data["uid"].toString()
+            message.message = content
+            message.time = time
+            message.uid = uid
+        }
+        return message
     }
 
     fun convertDataToDeviceSort(data: Map<String, Any>?): DeviceSorted {
@@ -51,15 +66,15 @@ object ConvertDataUtils {
 
         if (data != null) {
             val id: String? = data["id"].toString()
-            var ip: String? = data["ip"].toString()
-            var isMaster: Boolean? = data["master"] as Boolean
-            var portAState: Boolean? = data["portAState"] as Boolean
-            var portBState: Boolean? = data["portBState"] as Boolean
-            var portCState: Boolean? = data["portCState"] as Boolean
-            var powerA: Float? = data["powerA"] as Float
-            var powerB: Float? = data["powerB"] as Float
-            var powerC: Float? = data["powerC"] as Float
-            var totalPower: Float? = data["totalPower"] as Float
+            val ip: String? = data["ip"].toString()
+            val isMaster: Boolean? = data["master"] as Boolean
+            val portAState: Boolean? = data["portAState"] as Boolean
+            val portBState: Boolean? = data["portBState"] as Boolean
+            val portCState: Boolean? = data["portCState"] as Boolean
+            val powerA: Float? = data["powerA"] as Float
+            val powerB: Float? = data["powerB"] as Float
+            val powerC: Float? = data["powerC"] as Float
+            val totalPower: Float? = data["totalPower"] as Float
 
             device.id = id
             device.ip = ip

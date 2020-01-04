@@ -12,10 +12,12 @@ import com.example.hubbie.adapter.RoomAdapter
 import com.example.hubbie.entities.Room
 import com.example.hubbie.modules.base.view.BaseFragment
 import com.example.hubbie.modules.dialog.AddRoomFragmentDialog
+import com.example.hubbie.modules.main.IMain
 import com.example.hubbie.modules.room.IRoom
 import com.example.hubbie.modules.room.presenter.RoomPresenter
 
-class RoomFragment : BaseFragment(), IRoom.View, RoomAdapter.OnItemClickListener, AddRoomFragmentDialog.EditRoomDialogCallbacks {
+class RoomFragment(private val mainCallbacks: IMain.View?) : BaseFragment(), IRoom.View,
+    RoomAdapter.OnItemClickListener, AddRoomFragmentDialog.EditRoomDialogCallbacks {
 
     private var roomList = ArrayList<Room>();
     private var roomAdapter: RoomAdapter? = null
@@ -49,7 +51,7 @@ class RoomFragment : BaseFragment(), IRoom.View, RoomAdapter.OnItemClickListener
     }
 
     override fun onItemClick(position: Int) {
-        presenter?.onItemCliked(position)
+        mainCallbacks?.onRoomItemClicked(roomList[position])
     }
 
     override fun onSw1Click(position: Int, result: Boolean) {
@@ -66,7 +68,10 @@ class RoomFragment : BaseFragment(), IRoom.View, RoomAdapter.OnItemClickListener
 
     override fun onEditRoom(position: Int) {
         fragmentManager?.beginTransaction()
-            ?.add(AddRoomFragmentDialog.newInstance(roomList[position],this) as Fragment, AddRoomFragmentDialog::class.java.simpleName)
+            ?.add(
+                AddRoomFragmentDialog.newInstance(roomList[position], this) as Fragment,
+                AddRoomFragmentDialog::class.java.simpleName
+            )
             ?.commitAllowingStateLoss()
     }
 

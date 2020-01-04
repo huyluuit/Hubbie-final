@@ -5,6 +5,7 @@ import com.example.hubbie.modules.room.IRoom
 import com.example.hubbie.modules.room.view.RoomFragment
 
 class RoomRoute(fragment: RoomFragment) : IRoom.Route {
+
     override fun navigateToCreateRoom() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

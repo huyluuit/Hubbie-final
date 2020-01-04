@@ -3,7 +3,9 @@ package com.example.hubbie.utilis.firestore
 import android.util.Log
 import com.example.hubbie.entities.User
 import com.example.hubbie.utilis.ConvertDataUtils
+import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
@@ -71,13 +73,11 @@ object FirestoreUserUtil {
 
     fun checkAdminId(userId: String): Single<Boolean> {
         return Single.create {
-            db.document(userId).get().addOnCompleteListener { task ->
-                if (task.isSuccessful && task.result != null) {
-                    //user exist!
-                    val role = task.result!!.data?.get("role").toString()
-                    it.onSuccess(role == "admin")
-                } else {
-                    it.onSuccess(false)
+            db.document().get().addOnCompleteListener { task ->
+                if(task.isSuccessful && task.result != null){
+//                    for(item in task.result.){
+//
+//                    }
                 }
             }
         }

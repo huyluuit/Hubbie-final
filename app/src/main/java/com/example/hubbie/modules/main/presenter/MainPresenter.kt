@@ -1,33 +1,55 @@
 package com.example.hubbie.modules.main.presenter
 
+import com.example.hubbie.entities.Device
+import com.example.hubbie.entities.Room
+import com.example.hubbie.entities.User
 import com.example.hubbie.modules.main.IMain
+import com.example.hubbie.modules.main.route.MainRoute
+import com.example.hubbie.modules.main.view.MainFragment
 
-class MainPresenter :IMain.Presenter{
+class MainPresenter(fragment: MainFragment) : IMain.Presenter {
+
+    val router = MainRoute(fragment)
+
     override fun onMyInfoClicked() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     override fun onChatClick() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
 
-    override fun itemControlClicked(controlId: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun roomItemCliked(roomId: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun createRoomClicked() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
-    override fun getAllRooms(): ArrayList<String> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onNewRoomCreated(room: Room) {
+
+    }
+
+    override fun onItemRoomClicked(room: Room) {
+
+    }
+
+    override fun onItemUserClicked(user: User) {
+
+    }
+
+    override fun onItemDeviceClicked(device: Device) {
+
+    }
+
+    fun navigationUserInfo(){
+        router.navigationUserInfor()
+    }
+
+    fun navigationListChat(){
+        router.navigationListChat()
     }
 
     override fun onDestroy() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
+
+
 }

@@ -7,7 +7,8 @@ import com.example.hubbie.modules.room.interactor.RoomInteractor
 import com.example.hubbie.modules.room.route.RoomRoute
 import com.example.hubbie.modules.room.view.RoomFragment
 
-class RoomPresenter(private val fragment: RoomFragment) : BaseContract.BasePresenter, IRoom.Presenter, IRoom.Interactor.Callbacks {
+class RoomPresenter(private val fragment: RoomFragment) : BaseContract.BasePresenter,
+    IRoom.Presenter, IRoom.Interactor.Callbacks {
 
     private var interactor: RoomInteractor? = RoomInteractor(fragment, this)
     private var router: RoomRoute? = RoomRoute(fragment)
@@ -38,8 +39,8 @@ class RoomPresenter(private val fragment: RoomFragment) : BaseContract.BasePrese
 
     override fun onRoomChange(room: Room) {
         var p = 0
-        for(item in roomList){
-            if(room.id == item.id){
+        for (item in roomList) {
+            if (room.id == item.id) {
                 break;
             }
             p++;

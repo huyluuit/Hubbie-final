@@ -11,7 +11,7 @@ class RoomInteractor(fragment: RoomFragment, callbacks: IRoom.Interactor.Callbac
     private val compositeDisposable = CompositeDisposable()
 
     override fun getBaseRooms() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        
     }
 
     override fun onSw1Change(deviceId: String, state: Boolean) {

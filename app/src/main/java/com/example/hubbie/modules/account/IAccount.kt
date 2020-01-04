@@ -7,7 +7,7 @@ interface IAccount {
         fun pwdChangeClicked(newPwd: String)
         fun phoneChangeClicked(newPhone: String)
         fun nameDisplayChangeClicked(newNameDisplay: String)
-        fun getUser(userId: Int): User
+        fun getUser(): User?
     }
 
     interface Interactor {
