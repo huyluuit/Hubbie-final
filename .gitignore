@@ -89,3 +89,4 @@ lint/tmp/
 .gradle/buildOutputCleanup/
 .idea/
 .gradle/5.4.1/
+.gradle/5.4.1/executionHistory/executionHistory.lock
