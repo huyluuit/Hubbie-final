@@ -82,3 +82,9 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+.idea/workspace.xml
+.gradle/5.4.1/executionHistory/executionHistory.lock
+.gradle/5.4.1/fileHashes/fileHashes.bin
+.gradle/5.4.1/fileHashes/fileHashes.lock
+.gradle/buildOutputCleanup/buildOutputCleanup.lock
+.idea/workspace.xml
