@@ -73,11 +73,15 @@ object FirestoreUserUtil {
 
     fun checkAdminId(userId: String): Single<Boolean> {
         return Single.create {
-            db.document().get().addOnCompleteListener { task ->
-                if(task.isSuccessful && task.result != null){
-//                    for(item in task.result.){
-//
-//                    }
+            db.document(userId).get().addOnCompleteListener { task ->
+                if (task.isSuccessful && task.result != null) {
+                    //user exist!
+                    val role = task.result!!.data?.get("role").toString()
+                    if(role == "admin" || role == "roomAdmin"){
+                        it.onSuccess(true)
+                    }
+                } else {
+                    it.onSuccess(false)
                 }
             }
         }
