@@ -78,9 +78,23 @@ class AddRoomFragmentDialog(private val callbacks: EditRoomDialogCallbacks) : Ba
 
             if (validateUserInput(nameDisplay, deviceId)) {
                 if (rg.checkedRadioButtonId == R.id.rdCommon) {
-                    callbacks.onSaveRoom(Room(GeneralUtils.getTimeId(), nameDisplay, deviceId, true))
+                    callbacks.onSaveRoom(
+                        Room(
+                            GeneralUtils.getTimeId(),
+                            nameDisplay,
+                            deviceId,
+                            true
+                        )
+                    )
                 } else if (rg.checkedRadioButtonId == R.id.rdPrivate) {
-                    callbacks.onSaveRoom(Room(GeneralUtils.getTimeId(), nameDisplay, deviceId, false))
+                    callbacks.onSaveRoom(
+                        Room(
+                            GeneralUtils.getTimeId(),
+                            nameDisplay,
+                            deviceId,
+                            false
+                        )
+                    )
                 }
             }
 
@@ -100,7 +114,7 @@ class AddRoomFragmentDialog(private val callbacks: EditRoomDialogCallbacks) : Ba
                 tvNotify.visibility = View.GONE
                 rvRoomList.visibility = View.GONE
 
-                etDeviceId.setText(room.deviceId)
+                etDeviceId.setText(room.id)
                 etRoomName.setText(room.nameDisplay)
 
                 when (room.role) {

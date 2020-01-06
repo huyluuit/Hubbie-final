@@ -4,12 +4,51 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import com.example.hubbie.modules.base.BaseContract
 import com.example.hubbie.modules.dialog.LoadingFragment
+import com.example.hubbie.modules.dialog.MessageDialogFragment
 import com.example.hubbie.modules.dialog.ProcessDialog
 
-open class BaseDialogFragment : DialogFragment(), BaseContract.BaseView {
+open class BaseDialogFragment : DialogFragment(), BaseContract.BaseView,
+    BaseContract.MessageDialogCallbacks {
 
     private var loadingFragment: LoadingFragment? = null
     private var processLoading: ProcessDialog? = null
+    private var messageDialogFragment: MessageDialogFragment? = null
+
+
+    override fun showMessage(
+        title: String,
+        message: String,
+        neutralText: String
+    ) {
+        messageDialogFragment = MessageDialogFragment.newInstance(title, message, neutralText, this)
+        messageDialogFragment?.isCancelable = false
+        fragmentManager?.beginTransaction()?.add(
+            (messageDialogFragment as Fragment) ,
+            MessageDialogFragment::class.java.simpleName
+        )?.commitAllowingStateLoss()
+    }
+
+    override fun showMessage(
+        title: String,
+        message: String,
+        negativeText: String,
+        positiveText: String
+    ) {
+        messageDialogFragment = MessageDialogFragment.newInstance(title, message, negativeText, positiveText, this)
+        messageDialogFragment?.isCancelable = false
+        fragmentManager?.beginTransaction()?.add(
+            (messageDialogFragment as Fragment) ,
+            MessageDialogFragment::class.java.simpleName
+        )?.commitAllowingStateLoss()
+    }
+
+    override fun dismissMessage() {
+        if(messageDialogFragment != null){
+            messageDialogFragment?.dismiss()
+            messageDialogFragment = null
+        }
+    }
+
 
     override fun onResume() {
         loadingFragment?.dismiss()

@@ -16,8 +16,8 @@ class ListChatPresenter : IListChat.Presenter{
 
     private val router = ListChatRouter()
 
-    override fun navigationMessage(context: Context?, uid : String, receiverId : String){
-        router.navigationMessage(context, uid, receiverId)
+    override fun navigationMessage(context: Context?, uid : String, receiverId : String, receiverName : String){
+        router.navigationMessage(context, uid, receiverId, receiverName)
     }
 
     override fun getListChat(user: User, listener : OnGetData<ArrayList<User>>){

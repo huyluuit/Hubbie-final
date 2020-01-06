@@ -32,7 +32,7 @@ class ListChatFragment : Fragment(), IListChat.View {
     private var user : User? = null
     private var listennerGetUserChat = object : OnGetUserChatList {
         override fun onItemClick(position : Int) {
-            presenter?.navigationMessage(context,user?.uid ?: "", listChat?.get(position)?.uid ?: "")
+            presenter?.navigationMessage(context,user?.uid ?: "", listChat?.get(position)?.uid ?: "", listChat?.get(position)?.fullName ?: "")
         }
     }
 

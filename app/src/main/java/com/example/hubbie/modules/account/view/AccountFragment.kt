@@ -1,6 +1,7 @@
 package com.example.hubbie.modules.account.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import com.example.hubbie.R
 import com.example.hubbie.modules.account.IAccount
 import com.example.hubbie.modules.account.presenter.AccountPresenter
+import com.example.hubbie.utilis.firestore.FirestoreUserUtil
 import com.google.firebase.firestore.auth.User
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_my_info.view.*
@@ -46,12 +48,13 @@ class AccountFragment : Fragment(), IAccount.View,View.OnClickListener{
         getView?.my_info_tv_email?.text = user?.email
         getView?.my_info_tv_phone?.text = user?.phone
         getView?.my_info_tv_rule?.text = user?.role
-        if(user?.isActive ?: false){
+        if(user?.isActive == true){
             getView?.my_info_tv_state?.text = "ACTIVE"
         } else {
             getView?.my_info_tv_state?.text = "NOT ACTIVE"
         }
-
+        getView?.btn_log_out?.setOnClickListener(this)
+        getView?.btn_remove_account?.setOnClickListener(this)
     }
 
     override fun onClick(view: View?) {
@@ -61,6 +64,14 @@ class AccountFragment : Fragment(), IAccount.View,View.OnClickListener{
             }
             R.id.my_info_btn_back ->{
                 //Back to previous screen
+            }
+            R.id.btn_remove_account->{
+                FirestoreUserUtil.removeUser(user?.uid ?: "")
+                presenter?.logOut(user?.uid ?: "", context!!)
+            }
+            R.id.btn_log_out ->{
+                Log.d("huanhuan","Log out")
+                presenter?.logOut(user?.uid ?: "", context!!)
             }
         }
     }

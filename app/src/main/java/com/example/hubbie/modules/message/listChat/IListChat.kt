@@ -11,11 +11,11 @@ interface IListChat {
     }
 
     interface Presenter{
-        fun navigationMessage(context: Context?, uid : String, receiverId : String)
+        fun navigationMessage(context: Context?, uid : String, receiverId : String, receiverName : String)
         fun getListChat(user: User, listener : OnGetData<ArrayList<User>>)
     }
 
     interface Router{
-        fun navigationMessage(context: Context?, uid : String, receiverId : String)
+        fun navigationMessage(context: Context?, uid : String, receiverId : String, receiverName : String)
     }
 }

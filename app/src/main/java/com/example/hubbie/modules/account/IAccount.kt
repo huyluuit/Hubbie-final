@@ -1,5 +1,6 @@
 package com.example.hubbie.modules.account
 
+import android.content.Context
 import com.example.hubbie.entities.User
 
 interface IAccount {
@@ -7,6 +8,7 @@ interface IAccount {
         fun pwdChangeClicked(newPwd: String)
         fun phoneChangeClicked(newPhone: String)
         fun nameDisplayChangeClicked(newNameDisplay: String)
+        fun logOut(uid: String, context: Context)
         fun getUser(): User?
     }
 
@@ -17,6 +19,7 @@ interface IAccount {
 
     interface Route {
         fun navigateToMain()
+        fun navigationLogin(context: Context)
     }
 
     interface View

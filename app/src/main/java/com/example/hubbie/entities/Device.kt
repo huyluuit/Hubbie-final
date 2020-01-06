@@ -15,7 +15,7 @@ data class Device(
     var powerC: Float? = 0f,
     var totalPower: Float? = 0f,
     val temp: Float? = 0f
-) : Parcelable{
+) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),
@@ -63,5 +63,6 @@ data class Device(
 
 data class DeviceSorted(
     var macAddress: String = "",
-    var ipAddress: String = ""
+    var ipAddress: String = "",
+    var roomName: String = ""
 )

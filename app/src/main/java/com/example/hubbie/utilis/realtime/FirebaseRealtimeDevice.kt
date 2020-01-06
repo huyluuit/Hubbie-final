@@ -16,9 +16,30 @@ object FirebaseRealtimeDevice {
     private val db = FirebaseDatabase.getInstance()
     private val ref = db.getReference(FirestoreDeviceUtil.COLLECTION_DEVICE_LIST)
 
-    fun getBaseDevice(): Single<ArrayList<Device>> {
+    fun getBaseDevice(deviceIdList: ArrayList<String>): Single<ArrayList<Device>> {
         return Single.create {
+            for (deviceId in deviceIdList) {
+                val deviceList = ArrayList<Device>()
+                ref.child(deviceId).addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onCancelled(p0: DatabaseError) {
 
+                    }
+
+                    override fun onDataChange(p0: DataSnapshot) {
+                        val device = p0.getValue(Device::class.java)
+                        if (device != null) {
+                            deviceList.add(device)
+                            if (deviceIdList.last() == deviceId) {
+                                it.onSuccess(deviceList)
+                                Log.e("HuyHuy", "DeviceList: $deviceList")
+                            }
+                        } else {
+                            Log.e("GetDevice", "Device is null!")
+                        }
+                    }
+
+                })
+            }
         }
     }
 
@@ -34,9 +55,29 @@ object FirebaseRealtimeDevice {
         }
     }
 
-    fun getDevice(deviceId: String): Observable<Device> {
+    fun getDevice(deviceId: String): Single<Device> {
+        return Single.create {
+            ref.child(deviceId).addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(p0: DataSnapshot) {
+                    val device = p0.getValue(Device::class.java)
+                    if (device != null) {
+                        it.onSuccess(device)
+                    }else{
+                        Log.e("GetDevice", "Device is null!")
+                    }
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+
+            })
+        }
+    }
+
+    fun doDeviceChangeListener(deviceId: String): Observable<Device> {
         return Observable.create {
-            ref.child(deviceId).addValueEventListener(object: ValueEventListener{
+            ref.child(deviceId).addValueEventListener(object : ValueEventListener {
 
                 override fun onCancelled(p0: DatabaseError) {
 
@@ -44,9 +85,9 @@ object FirebaseRealtimeDevice {
 
                 override fun onDataChange(p0: DataSnapshot) {
                     val device = p0.getValue(Device::class.java)
-                    if(device != null){
+                    if (device != null) {
                         it.onNext(device)
-                    }else{
+                    } else {
                         Log.e("GetDevice", "Device is null!")
                     }
                 }

@@ -6,7 +6,7 @@ import android.os.Parcelable
 data class Room(
     var id: String? = "",
     var nameDisplay: String? = "",
-    var deviceId: String? = "",
+    var ipAddress: String? = "",
     var role: Boolean? = false //false: private, true: common
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
@@ -20,7 +20,7 @@ data class Room(
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(id)
         parcel.writeString(nameDisplay)
-        parcel.writeString(deviceId)
+        parcel.writeString(ipAddress)
         parcel.writeValue(role)
     }
 

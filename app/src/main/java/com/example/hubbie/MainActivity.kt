@@ -35,7 +35,9 @@ class MainActivity : AppCompatActivity() {
     fun changeFragment(fragment: Fragment){
         val ft = supportFragmentManager.beginTransaction()
         ft.add(R.id.main_container_frame, fragment)
-        ft.addToBackStack(fragment::class.java.simpleName)
+        if(!fragment::class.java.simpleName.equals("LoginFragment")){
+            ft.addToBackStack(fragment::class.java.simpleName)
+        }
         ft.commit()
     }
 }

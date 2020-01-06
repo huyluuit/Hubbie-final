@@ -104,6 +104,7 @@ class RegisterPresenter(private val fragment: RegisterFragment) : IRegister.Pres
 
     override fun onValidateAdminId(boolean: Boolean) {
         if (boolean) {
+            user.isActive = false
             interactor?.setUser(user)
         } else {
             fragment.dismissLoading()

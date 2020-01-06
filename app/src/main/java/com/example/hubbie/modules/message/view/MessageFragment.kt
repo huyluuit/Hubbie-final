@@ -9,10 +9,12 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.hubbie.BuildConfig
 import com.example.hubbie.R
 import com.example.hubbie.adapter.InAppMessageAdapter
 import com.example.hubbie.entities.Message
+import com.example.hubbie.entities.User
 import com.example.hubbie.modules.message.OnGetData
 import com.example.hubbie.modules.message.presenter.MessagePresenter
 import com.example.hubbie.utilis.GeneralUtils
@@ -29,11 +31,13 @@ class MessageFragment : Fragment(), View.OnClickListener {
     companion object{
         private const val ARG_UID_USER = BuildConfig.APPLICATION_ID + ".arg.ARG_UID_USER"
         private const val ARG_UID_RECEIVER = BuildConfig.APPLICATION_ID + ".arg.ARG_UID_RECEIVER"
-        fun newInstance(uid : String , receiverID: String) : MessageFragment{
+        private const val ARG_NAME_RECEIVER = BuildConfig.APPLICATION_ID + ".arg.ARG_NAME_RECEIVER"
+        fun newInstance(uid : String , receiverID: String, receiverName : String?) : MessageFragment{
             val fragment = MessageFragment()
             val bundle = Bundle()
             bundle.putString(ARG_UID_USER, uid)
             bundle.putString(ARG_UID_RECEIVER, receiverID)
+            bundle.putString(ARG_NAME_RECEIVER, receiverName)
             fragment.arguments = bundle
             return fragment
         }
@@ -44,6 +48,7 @@ class MessageFragment : Fragment(), View.OnClickListener {
     private var adapter: InAppMessageAdapter? = null
     private var uid : String? = null
     private var receiverId: String? = null
+    private var receiverName : String? = null
     private val presenter = MessagePresenter()
     private val listenerNewMessage = object : OnGetData<Message>{
         override fun onSuccess(data: Message?) {
@@ -56,7 +61,6 @@ class MessageFragment : Fragment(), View.OnClickListener {
 
     private val listenerAllMessage = object : OnGetData<ArrayList<Message>>{
         override fun onSuccess(data: ArrayList<Message>?) {
-            Log.d("huanhuan"," data : " + Gson().toJson(data))
             adapter?.updateAdapter(data ?: ArrayList())
         }
 
@@ -69,8 +73,8 @@ class MessageFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         getView = inflater.inflate(R.layout.fragment_message, main_container_frame, false)
-        initView()
         getDataBundle()
+        initView()
         initAdapter(getView)
         getMessageHistory()
         listenToNewMessage(uid ?: "", receiverId ?: "")
@@ -89,6 +93,8 @@ class MessageFragment : Fragment(), View.OnClickListener {
 
     private fun initView() {
         getView?.img_send?.setOnClickListener(this)
+        getView?.txt_name_receiver?.text = receiverName
+        activity?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
     }
 
     private fun listenToNewMessage(senderID: String, receiverID : String){
@@ -113,6 +119,7 @@ class MessageFragment : Fragment(), View.OnClickListener {
     private fun getDataBundle(){
         uid = arguments?.getString(ARG_UID_USER)
         receiverId = arguments?.getString(ARG_UID_RECEIVER)
+        receiverName = arguments?.getString(ARG_NAME_RECEIVER)
     }
 
     override fun onClick(view: View?) {

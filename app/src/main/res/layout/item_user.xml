@@ -1,153 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_marginVertical="5dp"
-    android:layout_marginHorizontal="20dp"
-    android:orientation="horizontal"
-    android:background="@drawable/border_item"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="120dp">
+    android:layout_height="120dp"
+    android:layout_margin="10dp"
+    android:background="@drawable/border_item"
+    android:orientation="horizontal">
 
     <LinearLayout
-        android:scaleX="1.2"
-        android:scaleY="1.2"
-        android:layout_marginVertical="15dp"
+        android:id="@+id/llId"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:layout_width="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="15dp"
         android:gravity="center"
-        android:layout_height="match_parent">
+        android:orientation="vertical"
+        android:scaleX="1.2"
+        android:scaleY="1.2">
 
         <ImageView
-            android:layout_marginTop="5dp"
             android:id="@+id/user_item_iv_avatar"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:background="@drawable/baseline_account">
-        </ImageView>
+            android:layout_marginTop="5dp"
+            android:background="@drawable/baseline_account"></ImageView>
 
         <TextView
             android:id="@+id/tvUserNameDisplay"
-            android:layout_marginTop="10dp"
-            android:layout_marginHorizontal="5dp"
-            android:layout_gravity="center"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="5dp"
+            android:layout_marginTop="10dp"
+            android:text="UserNameDisplay"
             android:textAlignment="center"
-            android:text="UserNameDisplay"/>
+            android:textSize="10sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvUserState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="ACTIVATE"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/llId"
+        app:layout_constraintBottom_toTopOf="@id/llRole"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/llLogs"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginVertical="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/border_rv_item"
+        android:gravity="top|center"
+        app:layout_constraintEnd_toStartOf="@id/llRole"
+        app:layout_constraintStart_toEndOf="@id/llId"
+        app:layout_constraintTop_toBottomOf="@id/tvUserState"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NHẬT KÝ"
+            android:textSize="8sp" />
+
+        <ImageButton
+            android:id="@+id/user_item_ib_diary"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/ic_diary" />
+
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_marginVertical="12dp"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:id="@+id/llRole"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/llId"
+        app:layout_constraintTop_toBottomOf="@id/tvUserState"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/border_rv_item"
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_gravity="center"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TextView
-                android:id="@+id/tvUserState"
-                android:textSize="12sp"
-                android:layout_gravity="center"
-                android:text="ACTIVATE"
-                android:textColor="@android:color/holo_green_dark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_gravity="left"
-            android:gravity="center"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_rowSpan="3"
-            android:layout_column="1"
-            android:layout_row="1">
+            android:layout_gravity="top|center"
+            android:text="QUYỀN"
+            android:textSize="8sp" />
 
-            <LinearLayout
-                android:id="@+id/llLogs"
-                android:layout_marginVertical="10dp"
-                android:layout_marginRight="10dp"
-                android:gravity="top|center"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:orientation="vertical"
-                android:background="@drawable/border_rv_item">
+        <ImageButton
+            android:id="@+id/user_item_ib_rule"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/ic_permission" />
 
-                <TextView
-                    android:text="NHẬT KÝ"
-                    android:textSize="8sp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <ImageButton
-                    android:id="@+id/user_item_ib_diary"
-                    android:background="@drawable/ic_diary"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"/>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/llRole"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginVertical="10dp"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:orientation="vertical"
-                android:background="@drawable/border_rv_item">
-
-                <TextView
-                    android:text="QUYỀN"
-                    android:textSize="8sp"
-                    android:layout_gravity="top|center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <ImageButton
-                    android:id="@+id/user_item_ib_rule"
-                    android:background="@drawable/ic_permission"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"/>
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/llUserInfo"
-                android:layout_marginLeft="10dp"
-                android:layout_marginVertical="10dp"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:orientation="vertical"
-                android:background="@drawable/border_rv_item">
-
-                <TextView
-                    android:text="THÔNG TIN"
-                    android:textSize="8sp"
-                    android:layout_gravity="top|center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <ImageButton
-                    android:id="@+id/user_item_ib_info"
-                    android:background="@drawable/ic_state"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="5dp"
-                    android:layout_width="30dp"
-                    android:layout_height="20dp"/>
-            </LinearLayout>
-
-
-        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+    <LinearLayout
+        android:id="@+id/llUserInfo"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginVertical="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/border_rv_item"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/llRole"
+        app:layout_constraintTop_toBottomOf="@id/tvUserState"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:text="THÔNG TIN"
+            android:textSize="8sp" />
+
+        <ImageButton
+            android:id="@+id/user_item_ib_info"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/ic_state" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

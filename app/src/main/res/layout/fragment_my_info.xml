@@ -37,125 +37,170 @@
         </LinearLayout>
     </Toolbar>
 
-    <ImageView
-            android:id="@+id/my_info_iv_avatar"
-            android:layout_marginTop="60dp"
-            android:layout_gravity="center"
-            android:background="@drawable/ic_homie"
-            android:layout_width="60dp"
-            android:layout_height="60dp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-            android:id="@+id/my_info_tv_name_display"
-            android:layout_marginTop="15dp"
-            android:text="NAME_DISPLAY"
-            android:layout_gravity="center"
-            android:textColor="#FFFF"
-            android:textSize="15sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    <TextView
-            android:layout_marginTop="70dp"
-            android:layout_marginHorizontal="43dp"
-            android:text="THÔNG TIN TÀI KHOẢN"
-            android:textStyle="bold"
-            android:textColor="#FFFF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    <View
-            android:layout_marginTop="2dp"
-            android:layout_marginHorizontal="43dp"
-            android:layout_width="fill_parent"
-            android:layout_height="2dp"
-            android:background="#FFFF" />
-
-    <TextView
-            android:id="@+id/my_info_tv_email"
-            android:padding="10dp"
-            android:inputType="textEmailAddress"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/border"
-            android:layout_marginHorizontal="40dp"
-            android:hint="Email"
-            android:textColorHint="#FFFF"
-            android:textColor="#FFFF"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-            android:id="@+id/my_info_tv_phone"
-            android:inputType="textPhonetic"
-            android:padding="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/border"
-            android:layout_marginHorizontal="40dp"
-            android:hint="Số điện thoại"
-            android:textColorHint="#FFFF"
-            android:textColor="#FFFF"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <ImageView
+                android:id="@+id/my_info_iv_avatar"
+                android:layout_marginTop="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_homie"
+                android:layout_width="60dp"
+                android:layout_height="60dp"/>
 
-    <TextView
-            android:id="@+id/my_info_tv_dated"
-            android:inputType="text"
-            android:padding="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/border"
-            android:layout_marginHorizontal="40dp"
-            android:hint="Ngày khởi tạo"
-            android:textColorHint="#FFFF"
-            android:textColor="#FFFF"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/my_info_tv_name_display"
+                android:layout_marginTop="15dp"
+                android:text="NAME_DISPLAY"
+                android:layout_gravity="center"
+                android:textColor="#FFFF"
+                android:textSize="15sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-    <Button
-            android:id="@+id/my_info_btn_pwd_change"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/border_item"
-            android:layout_marginHorizontal="40dp"
-            android:text="ĐỔI MẬT KHẨU"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginTop="70dp"
+                android:layout_marginHorizontal="43dp"
+                android:text="THÔNG TIN TÀI KHOẢN"
+                android:textStyle="bold"
+                android:textColor="#FFFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <View
+                android:layout_marginTop="2dp"
+                android:layout_marginHorizontal="43dp"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:background="#FFFF" />
 
-    <TextView
-            android:layout_marginTop="38dp"
-            android:layout_marginHorizontal="43dp"
-            android:text="GIỚI HẠN &#38; TRẠNG THÁI"
-            android:textStyle="bold"
-            android:textColor="#FFFF"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    <View
-            android:layout_marginTop="2dp"
-            android:layout_marginHorizontal="43dp"
-            android:layout_width="fill_parent"
-            android:layout_height="2dp"
-            android:background="#FFFF" />
+            <TextView
+                android:id="@+id/my_info_tv_email"
+                android:padding="10dp"
+                android:inputType="textEmailAddress"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border"
+                android:layout_marginHorizontal="40dp"
+                android:hint="Email"
+                android:textColorHint="#FFFF"
+                android:textColor="#FFFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-    <TextView
-            android:id="@+id/my_info_tv_rule"
-            android:inputType="text"
-            android:padding="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/border"
-            android:layout_marginHorizontal="40dp"
-            android:hint="Quyền: Admin"
-            android:textColorHint="#FFFF"
-            android:textColor="#FFFF"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    <TextView
-            android:id="@+id/my_info_tv_state"
-            android:inputType="text"
-            android:padding="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/border"
-            android:layout_marginHorizontal="40dp"
-            android:hint="Trạng thái: ACTIVATE"
-            android:textColorHint="#FFFF"
-            android:textColor="#FFFF"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/my_info_tv_phone"
+                android:inputType="textPhonetic"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border"
+                android:layout_marginHorizontal="40dp"
+                android:hint="Số điện thoại"
+                android:textColorHint="#FFFF"
+                android:textColor="#FFFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/my_info_tv_dated"
+                android:inputType="text"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border"
+                android:layout_marginHorizontal="40dp"
+                android:hint="Ngày khởi tạo"
+                android:textColorHint="#FFFF"
+                android:textColor="#FFFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/my_info_btn_pwd_change"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_item"
+                android:layout_marginHorizontal="40dp"
+                android:text="ĐỔI MẬT KHẨU"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="38dp"
+                android:layout_marginHorizontal="43dp"
+                android:text="GIỚI HẠN &#38; TRẠNG THÁI"
+                android:textStyle="bold"
+                android:textColor="#FFFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <View
+                android:layout_marginTop="2dp"
+                android:layout_marginHorizontal="43dp"
+                android:layout_width="fill_parent"
+                android:layout_height="2dp"
+                android:background="#FFFF" />
+
+            <TextView
+                android:id="@+id/my_info_tv_rule"
+                android:inputType="text"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border"
+                android:layout_marginHorizontal="40dp"
+                android:hint="Quyền: Admin"
+                android:textColorHint="#FFFF"
+                android:textColor="#FFFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/my_info_tv_state"
+                android:inputType="text"
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border"
+                android:layout_marginHorizontal="40dp"
+                android:hint="Trạng thái: ACTIVATE"
+                android:textColorHint="#FFFF"
+                android:textColor="#FFFF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+                <Button
+                    android:id="@+id/btn_remove_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Xóa Tài Khoản"
+                    android:layout_marginLeft="20dp"
+                    android:padding="20dp"
+                    android:textColor="@android:color/holo_red_light"
+                    android:background="@drawable/border_item"
+                    android:layout_alignParentLeft="true"/>
+
+                <Button
+                    android:id="@+id/btn_log_out"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:text="Đăng Xuất"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:padding="20dp"
+                    android:textColor="@color/colorBlack"
+                    android:background="@drawable/border_item"/>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"/>
+        </LinearLayout>
+
+    </ScrollView>
 
 </LinearLayout>

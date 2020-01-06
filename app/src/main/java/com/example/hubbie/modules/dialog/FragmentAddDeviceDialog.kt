@@ -80,7 +80,7 @@ class FragmentAddDeviceDialog(private val uid: String) : BaseDialogFragment() {
                                     .subscribeOn(Schedulers.newThread())
                                     .observeOn(AndroidSchedulers.mainThread()).subscribeBy(
                                         onSuccess = {
-                                            val macDevice = it.first
+                                            val macDevice = it.first.toUpperCase()
                                             val ipDevice = it.second.substring(1, it.second.length)
                                             val device = Device(macDevice, ipDevice)
                                             val deviceSorted = DeviceSorted(macDevice, ipDevice)

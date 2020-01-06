@@ -46,13 +46,23 @@ class InAppMessageAdapter : RecyclerView.Adapter<InAppMessageAdapter.ViewHolder>
     }
 
     override fun onBindViewHolder(holder: InAppMessageAdapter.ViewHolder, position: Int) {
-        val sms = listSMS.get(position).message
-        val uid = listSMS.get(position).uid
+        val sms = listSMS[position].message
+        val uid = listSMS[position].uid
+
         if(userId.equals(uid)){
+            val layoutMessage = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
+            layoutMessage.addRule(RelativeLayout.ALIGN_PARENT_RIGHT, RelativeLayout.TRUE)
+            layoutMessage.setMargins(0,20,0,0)
+            holder.itemView.layout_show_message.layoutParams = layoutMessage
             holder.itemView.layout_show_message.setBackgroundResource(R.drawable.bg_text_message_sender)
         } else {
+            val layoutMessage = RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT)
+            layoutMessage.addRule(RelativeLayout.ALIGN_PARENT_LEFT, RelativeLayout.TRUE)
+            layoutMessage.setMargins(0,20,0,0)
+            holder.itemView.layout_show_message.layoutParams = layoutMessage
             holder.itemView.layout_show_message.setBackgroundResource(R.drawable.bg_text_message_receiver)
         }
+
 
         if(sms != null){
             holder.itemView.txt_message.text = sms

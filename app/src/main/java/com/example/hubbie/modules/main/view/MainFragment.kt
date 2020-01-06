@@ -31,6 +31,8 @@ import com.example.hubbie.utilis.GeneralUtils
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.fragment_main.view.*
+import kotlinx.android.synthetic.main.nav_header.view.*
 
 class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChangeListener,
     DrawerLayout.DrawerListener, AddRoomFragmentDialog.EditRoomDialogCallbacks, IMain.View {
@@ -56,10 +58,11 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
     private lateinit var fabAdd: FloatingActionButton
     private lateinit var fabStatistic: FloatingActionButton
     private lateinit var fabTvAdd: TextView
-
+    private lateinit var tvUserNameDisplay: TextView
     private lateinit var prevMenu: MenuItem
 
     private lateinit var mSectionsPagerAdapter: SectionsPagerAdapter
+    private var isInitial = false
 
     private var presenter: MainPresenter? = null
 
@@ -104,6 +107,7 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        Log.e("HuyHUy", "HomeCLicking!")
         return when (item.itemId) {
             android.R.id.home -> {
                 mDrawerLayout.openDrawer(GravityCompat.START)
@@ -124,15 +128,73 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
         val v = inflater.inflate(R.layout.fragment_main, container, false)
         presenter = MainPresenter(this)
         val baseUser = AccountPreferences(context!!).getBaseAccount()
-
-        Log.e("User", "User nameDisplay: ${baseUser.fullName} Role: ${baseUser.role}")
-
-
+        presenter?.doUserChangeListener(baseUser.uid ?: "")
+        presenter?.setView(this)
         LinearLayoutSetup(v)
 
         FABSetup(v) // Floating Action Bar setup
 
         ActionBarSetup(v)
+        if ((baseUser.isActive ?: false)) {
+            initialView(v, baseUser.role ?: "client")
+            isInitial = true
+        } else {
+            showMessage(
+                "THÔNG TIN TÀI KHOẢN",
+                "TÀI KHOẢN CỦA BẠN ĐÃ BỊ KHÓA BỞI ADMIN! VUI LÒNG LIÊN HỆ ĐỂ BIẾT THÊM CHI TIẾT",
+                "ĐĂNG XUẤT",
+                "OK"
+            )
+        }
+
+        return v
+    }
+
+    override fun accountActiveChangeState(result: Boolean) {
+        Log.e("HuyHuy", "AccountStateChange: " + result)
+        if (!result) {
+            showMessage(
+                "THÔNG TIN TÀI KHOẢN",
+                "TÀI KHOẢN CỦA BẠN ĐÃ BỊ KHÓA BỞI ADMIN! VUI LÒNG LIÊN HỆ ĐỂ BIẾT THÊM CHI TIẾT",
+                "ĐĂNG XUẤT",
+                "OK"
+            )
+        } else {
+            if (!isInitial) {
+                if (view != null) {
+                    initialView(
+                        view!!,
+                        AccountPreferences(context!!).getBaseAccount().role ?: "client"
+                    )
+                    isInitial = true
+                }
+            }
+            dismissMessage()
+        }
+        hideView(result)
+
+    }
+
+    override fun onNegativeClick() {
+        super.onNegativeClick()
+        dismissMessage()
+        presenter?.logOutClicked()
+    }
+
+    override fun onPositiveClick() {
+        super.onPositiveClick()
+        dismissMessage()
+    }
+
+    fun hideView(state: Boolean) {
+        if (!state) {
+            mViewPager.visibility = View.INVISIBLE
+        } else {
+            mViewPager.visibility = View.VISIBLE
+        }
+    }
+
+    private fun initialView(v: View, role: String) {
 
         SubsSetup(v) //Toolbar - NavigationLayout - Titile setup
 
@@ -141,7 +203,7 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
         BottomNavigationViewSetup(v)
 
         //Check role
-        when (baseUser.role) {
+        when (role) {
             getString(R.string.admin) -> {
                 mSectionsPagerAdapter =
                     SectionsPagerAdapter(fragmentManager!!, 3, this)
@@ -154,15 +216,15 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
             }
 
             getString(R.string.client) -> {
+                llAdd.visibility = View.INVISIBLE
                 mBottomNavigationView.menu.removeItem(R.id.bottom_nav_device)
                 mBottomNavigationView.menu.removeItem(R.id.bottom_nav_user)
                 mSectionsPagerAdapter =
                     SectionsPagerAdapter(fragmentManager!!, 1, this)
             }
         }
-        StructureSetup(v) //ViewPager - Tablayout setup
 
-        return v
+        StructureSetup(v) //ViewPager - Tablayout setup
     }
 
     //Component setup functions: This is first setup at onCreate function.
@@ -189,15 +251,19 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
     private fun ActionBarSetup(view: View) {
         mToolbar = view.findViewById(R.id.main_toolbar)
         (activity as AppCompatActivity).setSupportActionBar(mToolbar)
-        mActionBar = (activity as AppCompatActivity).supportActionBar!!
-        mActionBar.setDisplayHomeAsUpEnabled(true)
-        mActionBar.setHomeAsUpIndicator(R.drawable.baseline_menu_24)
+//        mActionBar = (activity as AppCompatActivity).supportActionBar!!
+//        mActionBar.setHomeButtonEnabled(true)
+//        mActionBar.setDisplayHomeAsUpEnabled(true)
+//        mActionBar.setHomeAsUpIndicator(R.drawable.baseline_menu_24)
     }
 
     private fun SubsSetup(view: View) {
         tvTitle = mToolbar.findViewById(
             R.id.main_toolbar_title
         )
+        mToolbar.ibMenu.setOnClickListener{
+            mDrawerLayout.openDrawer(GravityCompat.START)
+        }
         mDrawerLayout = view.findViewById(R.id.main_drawer_layout)
         mDrawerLayout.addDrawerListener(this)
     }
@@ -214,6 +280,8 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
 
     private fun NavigationViewSetup(view: View) {
         mNavigationView = view.findViewById(R.id.main_nav_view)
+        tvUserNameDisplay = mNavigationView.inflateHeaderView(R.layout.nav_header).findViewById(R.id.tvUserNameDisplay)
+        tvUserNameDisplay.setText(AccountPreferences(context!!).getBaseAccount().fullName)
         mNavigationView.setNavigationItemSelectedListener { p0: MenuItem ->
             // set item as selected to persist highlight
             p0.isChecked = true
@@ -233,7 +301,6 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
 
             }
             //set ActionBar Title
-            tvTitle.setText(p0.title)
             // close drawer when item is tapped
             mDrawerLayout.closeDrawers()
             //calling the method displayselectedscreen and passing the id of selected menu

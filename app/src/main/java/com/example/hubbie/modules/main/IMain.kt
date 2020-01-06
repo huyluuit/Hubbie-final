@@ -7,10 +7,13 @@ import com.example.hubbie.modules.base.BaseContract
 
 interface IMain {
     interface Presenter : BaseContract.BasePresenter {
+        fun setView(view: View)
         fun onMyInfoClicked()
         fun onChatClick()
+        fun logOutClicked()
         fun createRoomClicked()
         fun onNewRoomCreated(room: Room)
+        fun doUserChangeListener(userId: String)
         fun onItemRoomClicked(room: Room)
         fun onItemUserClicked(user: User)
         fun onItemDeviceClicked(device: Device)
@@ -19,10 +22,9 @@ interface IMain {
     interface Interactor : BaseContract.BaseInteractor {
         fun addNewRoom(room: Room)
         fun doAccountChangeListener(userId: String)
-        interface Callbacks{
-            fun onAccountDisable()
+        interface Callbacks {
             fun onAccountDelete()
-            fun onAccountUpdateNewChanges()
+            fun onAccountActivateChanges(state: Boolean)
         }
     }
 
@@ -39,5 +41,6 @@ interface IMain {
         fun onRoomItemClicked(room: Room)
         fun onUserItemClicked(user: User)
         fun onDeviceItemClicked(device: Device)
+        fun accountActiveChangeState(result: Boolean)
     }
 }

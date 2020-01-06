@@ -52,8 +52,10 @@ object ConvertDataUtils {
         if (data != null) {
             val macAddress: String = data["macAddress"].toString()
             val ipAddress: String = data["ipAddress"].toString()
+            val roomName: String = data["roomName"].toString()
             deviceSorted.macAddress = macAddress
             deviceSorted.ipAddress = ipAddress
+            deviceSorted.roomName = roomName
         }
 
         return deviceSorted

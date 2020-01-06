@@ -30,10 +30,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <ImageButton
+                    android:id="@+id/ibMenu"
+                    android:src="@drawable/baseline_menu_24"
+                    android:background="@android:color/transparent"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"/>
+
                 <TextView
                     android:id="@+id/main_toolbar_title"
                     android:textColor="#000"
                     android:textSize="20sp"
+                    android:layout_marginStart="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
@@ -107,6 +115,5 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:menu="@menu/drawer_view"
-        app:headerLayout="@layout/nav_header"/>
+        app:menu="@menu/drawer_view" />
 </androidx.drawerlayout.widget.DrawerLayout>

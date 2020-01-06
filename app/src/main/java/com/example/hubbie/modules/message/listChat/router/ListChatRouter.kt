@@ -7,7 +7,7 @@ import com.example.hubbie.modules.message.view.MessageFragment
 
 class ListChatRouter : IListChat.Router{
 
-    override fun navigationMessage(context: Context?, uid : String, receiverId : String){
-        (context as MainActivity).changeFragment(MessageFragment.newInstance(uid,receiverId))
+    override fun navigationMessage(context: Context?, uid : String, receiverId : String, receiverName : String){
+        (context as MainActivity).changeFragment(MessageFragment.newInstance(uid,receiverId, receiverName))
     }
 }

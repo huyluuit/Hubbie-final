@@ -1,5 +1,6 @@
 package com.example.hubbie.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import com.example.hubbie.entities.User
 class UserAdapter(private val data: ArrayList<User>, private val listener: Callbacks) :
     RecyclerView.Adapter<UserAdapter.DataViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
+        Log.e("HuyHUy", "UserList size: ${data.size}")
         return DataViewHolder(
             LayoutInflater.from(parent.context).inflate(
                 R.layout.item_user,
@@ -27,7 +29,12 @@ class UserAdapter(private val data: ArrayList<User>, private val listener: Callb
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
         holder.tvUserNameDisplay.text = data[position].fullName
-        holder.tvUserState.text = data[position].adminId
+
+        if ((data[position].isActive ?: false)) {
+            holder.tvUserState.text = "ACTIVATE"
+        } else {
+            holder.tvUserState.text = "DE-ACTIVATE"
+        }
 
         holder.llLogs.setOnClickListener {
             holder.bindOnLogClick(position, listener)
@@ -62,7 +69,7 @@ class UserAdapter(private val data: ArrayList<User>, private val listener: Callb
         }
 
         fun bindOnRoleClick(position: Int, listener: Callbacks) {
-            listener.onLogClick(position)
+            listener.onRoleClick(position)
         }
 
         fun bindOnUserInfoClick(position: Int, listener: Callbacks) {
