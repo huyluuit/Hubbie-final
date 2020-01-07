@@ -15,7 +15,7 @@
             android:layout_height="40dp"/>
 
     <TextView
-            android:id="@+id/header_tv_display_name"
+            android:id="@+id/tvUserNameDisplay"
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

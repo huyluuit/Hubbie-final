@@ -10,8 +10,10 @@ data class User(
     var phone: String? = "",
     var fullName: String? = "",
     var pwd: String? = "",
-    var role: String? = ""
-) : Parcelable {
+    var role: String? = "",
+    var adminId: String? = "",
+    var roomId: String? = ""
+): Parcelable{
     constructor(parcel: Parcel) : this(
         parcel.readValue(Boolean::class.java.classLoader) as? Boolean,
         parcel.readString(),
@@ -19,8 +21,11 @@ data class User(
         parcel.readString(),
         parcel.readString(),
         parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
         parcel.readString()
-    )
+    ) {
+    }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeValue(isActive)
@@ -30,6 +35,8 @@ data class User(
         parcel.writeString(fullName)
         parcel.writeString(pwd)
         parcel.writeString(role)
+        parcel.writeString(adminId)
+        parcel.writeString(roomId)
     }
 
     override fun describeContents(): Int {
@@ -45,5 +52,9 @@ data class User(
             return arrayOfNulls(size)
         }
     }
-
 }
+
+data class BaseUser(
+    var nameDisplay: String? = "",
+    var uid: String? = ""
+)

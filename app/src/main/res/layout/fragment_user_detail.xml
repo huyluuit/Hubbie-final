@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:background="@drawable/border_item"
+        android:layout_margin="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ScrollView
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/ivClose"
+                    android:scaleX="0.6"
+                    android:scaleY="0.6"
+                    android:layout_marginStart="10dp"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/close"/>
+
+                <ImageView
+                    android:id="@+id/my_info_iv_avatar"
+                    android:layout_gravity="center"
+                    android:background="@drawable/man"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"/>
+
+                <TextView
+                    android:id="@+id/tvUserNameDisplay"
+                    android:layout_marginTop="15dp"
+                    android:text="NAME_DISPLAY"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/avenir_medium"
+                    android:textColor="#000000"
+                    android:textSize="15sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_marginTop="50dp"
+                    android:layout_marginHorizontal="23dp"
+                    android:text="THÔNG TIN TÀI KHOẢN"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <View
+                    android:layout_marginTop="2dp"
+                    android:layout_marginHorizontal="23dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:background="#000000" />
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:padding="10dp"
+                    android:inputType="textEmailAddress"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_tv"
+                    android:layout_marginHorizontal="20dp"
+                    android:hint="Email"
+                    android:textColorHint="#000000"
+                    android:textColor="#000000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:id="@+id/tvPhone"
+                    android:inputType="textPhonetic"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_tv"
+                    android:layout_marginHorizontal="20dp"
+android:hint="Số điện thoại"
+                    android:textColorHint="#000000"
+                    android:textColor="#000000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_marginTop="20dp"
+                    android:layout_marginHorizontal="23dp"
+                    android:text="GIỚI HẠN &#38; TRẠNG THÁI"
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <View
+                    android:layout_marginTop="2dp"
+                    android:layout_marginHorizontal="23dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dp"
+                    android:background="#000000" />
+
+
+                <TextView
+                    android:id="@+id/tvRole"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_tv"
+                    android:layout_marginHorizontal="20dp"
+android:hint="Quyền: Admin"
+                    android:textColorHint="#000000"
+                    android:textColor="#000000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/tvUserState"
+                    android:inputType="text"
+                    android:padding="10dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/border_tv"
+                    android:layout_marginHorizontal="20dp"
+                    android:hint="Trạng thái: ACTIVATE"
+                    android:textColorHint="#000000"
+                    android:textColor="#000000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/btnDisable"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:text="VÔ HIỆU HÓA"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <Button
+                    android:id="@+id/btnRemoveAccount"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:textColor="@android:color/holo_red_light"
+                    android:text="XÓA TÀI KHOẢN"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/bottom_nav_room"
-            android:icon="@drawable/baseline_meeting_room_24"
             android:checked="true"
+            android:icon="@drawable/baseline_meeting_room_24"
             android:title="Room" />
 
         <item
             android:id="@+id/bottom_nav_user"
-            android:icon="@drawable/baseline_perm_identity_24"
             android:checked="false"
-            android:title="User"  />
+            android:icon="@drawable/baseline_perm_identity_24"
+            android:title="User" />
 
         <item
-            android:id="@+id/bottom_nav_hw"
-            android:icon="@drawable/baseline_router_24"
+            android:id="@+id/bottom_nav_device"
             android:checked="false"
-            android:title="Device"  />
+            android:icon="@drawable/baseline_router_24"
+            android:title="Device" />
+
+        <item
+            android:id="@+id/bottom_nav_statistic"
+            android:checked="false"
+            android:icon="@drawable/baseline_statistic_24"
+            android:title="Statistic" />
 
     </group>
 </menu>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/border_tv"
+    android:orientation="horizontal"
+    android:layout_margin="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tvFirstValue"
+        android:hint="Second value"
+        android:textAlignment="center"
+        android:padding="10dp"
+        android:layout_width="0dp"
+        android:layout_weight="0.9"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"/>
+
+    <View
+        android:layout_width="2dp"
+        android:rotation="10"
+        android:background="@android:color/black"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/tvSecondValue"
+        android:hint="Second value"
+        android:textAlignment="center"
+        android:padding="10dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.9"
+        android:background="@android:color/transparent"/>
+
+</LinearLayout>

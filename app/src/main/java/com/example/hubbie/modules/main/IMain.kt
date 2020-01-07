@@ -1,33 +1,48 @@
 package com.example.hubbie.modules.main
 
-import com.example.hubbie.entities.Control
-import com.example.hubbie.entities.Room
+import com.example.hubbie.entities.*
 import com.example.hubbie.modules.base.BaseContract
 
 interface IMain {
-    interface Presenter: BaseContract.BasePresenter {
-        fun itemControlClicked(controlId: Int)
-        fun roomItemCliked(roomId: Int)
+    interface Presenter : BaseContract.BasePresenter {
+        fun setView(view: View)
+        fun onMyInfoClicked()
+        fun onChatClick()
+        fun logOutClicked()
         fun createRoomClicked()
-        fun getAllRooms(): ArrayList<String>
+        fun onNewRoomCreated(room: Room)
+        fun doUserChangeListener(userId: String)
+        fun onItemRoomClicked(room: Room)
+        fun onItemUserClicked(user: User)
+        fun onItemDeviceClicked(device: Device)
     }
 
-    interface Interactor: BaseContract.BaseInteractor{
-        fun getRoom(roomId: Int): Room
-        fun getAllControls(roomId: Int): ArrayList<Control>
-        fun getAllRooms(): ArrayList<Room>
+    interface Interactor : BaseContract.BaseInteractor {
+        fun addNewRoom(room: Room)
+        fun doAccountChangeListener(userId: String)
+        interface Callbacks {
+            fun onAccountDelete()
+            fun onAccountActivateChanges(state: Boolean)
+        }
     }
 
-    interface Route: BaseContract.BaseRouter {
+    interface Route : BaseContract.BaseRouter {
         fun navigateToLogin()
         fun navigateToAccountInfo()
-        fun navigateToCreateRoom()
-        fun navigateToRoomDetail()
+        fun navigateToRoomDetail(room: Room)
+        fun navigateToUserDetail(user: User)
+        fun navigateToDeviceDetail(device: Device)
         fun navigateToChat()
     }
 
     interface View {
-        fun onItemClicked()
-        fun createRoomClicked()
+        fun onRoomItemClicked(room: Room)
+        fun onUserItemClicked(user: User)
+        fun onDeviceItemClicked(device: Device)
+        fun accountActiveChangeState(result: Boolean)
+        fun onBaseUserList(baseUserList: ArrayList<BaseUser>)
+        fun onBaseDeviceList(baseDeviceSortedList: ArrayList<DeviceSorted>)
+        fun getBaseUserList(): ArrayList<BaseUser>
+        fun getBaseDeviceList(): ArrayList<DeviceSorted>
     }
 }

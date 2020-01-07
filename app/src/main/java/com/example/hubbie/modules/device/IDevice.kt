@@ -1,29 +1,32 @@
 package com.example.hubbie.modules.device
 
 import com.example.hubbie.entities.Device
+import com.example.hubbie.entities.DeviceSorted
+import com.example.hubbie.modules.base.BaseContract
 
 interface IDevice {
-    interface Presenter {
-        fun deviceItemClicked(deviceId: Int)
-        fun createDeviceClicked()
-        fun getAllDevices(): ArrayList<Device>
+    interface Presenter : BaseContract.BasePresenter {
+        fun setView(view: View)
+        fun getAllDevices()
+        fun doDeviceChangeListener()
     }
 
-    interface Interactor {
-        fun getDevice(deviceId: Int): Device
-        fun getAllDevice(): ArrayList<Device>
-    }
-
-    interface Route {
-        fun navigateToLogin()
-        fun navigateToAccountInfo()
-        fun navigateToCreateDevice()
-        fun navigateToDeviceDetail()
-        fun navigateToChat()
+    interface Interactor : BaseContract.BaseInteractor {
+        fun getAllDevice()
+        fun doDeviceChangeListener()
+        interface Callbacks {
+            fun onBaseDevice(deviceList: Pair<ArrayList<Device>, ArrayList<DeviceSorted>>)
+            fun onNewDevice(device: Device)
+            fun onUpdatedDevice(device: Device)
+            fun onRemovedDevice(device: Device)
+        }
     }
 
     interface View {
-        fun onItemClicked()
-        fun createDeviceClicked()
+        fun setBaseDevice(deviceList: ArrayList<Device>)
+        fun onNewDevie(position: Int)
+        fun onUpdatedDevice(position: Int)
+        fun onRemovedDevice(position: Int)
+        fun onBaseDeviceSorted(deviceSorted: ArrayList<DeviceSorted>)
     }
 }

@@ -40,6 +40,7 @@
 
     <LinearLayout
             android:id="@+id/ll_statistic"
+        android:visibility="gone"
             android:layout_marginTop="50dp"
             android:orientation="horizontal"
             android:layout_gravity="top|right"

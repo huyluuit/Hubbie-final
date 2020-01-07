@@ -2,31 +2,49 @@ package com.example.hubbie.modules.room
 
 import com.example.hubbie.entities.Control
 import com.example.hubbie.entities.Room
+import com.example.hubbie.entities.User
+import com.example.hubbie.modules.base.BaseContract
+import java.util.*
+import kotlin.collections.ArrayList
 
 interface IRoom {
+
     interface Presenter {
+        fun setView(view: View)
+        fun onSw1StateChange(position: Int, result: Boolean)
+        fun onSw2StateChange(position: Int, result: Boolean)
+        fun onSw3StateChange(position: Int, result: Boolean)
         fun itemControlClicked(controlId: Int)
-        fun roomItemCliked(roomId: Int)
-        fun createRoomClicked()
-        fun getAllRooms(): ArrayList<String>
+        fun onItemCliked(position: Int)
+        fun onEditRoomClicked(position: Int)
+        fun getBaseRooms()
+        fun doRoomLisenter()
     }
 
-    interface Interactor {
-        fun getRoom(roomId: Int): Room
-        fun getAllControls(roomId: Int): ArrayList<Control>
-        fun getAllRooms(): ArrayList<Room>
+    interface Interactor :BaseContract.BaseInteractor{
+        fun getBaseRooms()
+        fun doRoomChangeListener()
+        fun onSw1Change(deviceId: String, state: Boolean)
+        fun onSw2Change(deviceId: String, state: Boolean)
+        fun onSw3Change(deviceId: String, state: Boolean)
+        interface Callbacks{
+            fun onBaseRoom(roomList: ArrayList<Room>)
+            fun onRoomAdded(room: Room)
+            fun onRoomUpdated(room: Room)
+            fun onRoomRemoved(room: Room)
+        }
     }
 
     interface Route {
-        fun navigateToLogin()
-        fun navigateToAccountInfo()
         fun navigateToCreateRoom()
-        fun navigateToRoomDetail()
-        fun navigateToChat()
+        fun navigateToEditRoom(room: Room)
+        fun navigateToRoomDetail(room: Room)
     }
 
     interface View {
-        fun onItemClicked()
-        fun createRoomClicked()
+        fun setBaseRoom(roomList: ArrayList<Room>)
+        fun onRoomChange(position: Int)
+        fun onRoomAdded(position: Int)
+        fun onRoomRemoved(position: Int)
     }
 }

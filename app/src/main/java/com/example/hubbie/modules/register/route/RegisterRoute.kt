@@ -5,6 +5,7 @@ import com.example.hubbie.modules.main.view.MainFragment
 import com.example.hubbie.modules.register.IRegister
 
 class RegisterRoute(private val fragment: Fragment?) : IRegister.Route {
+
     override fun navigateToLogin() {
         fragment?.fragmentManager?.popBackStack()
     }

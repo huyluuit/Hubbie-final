@@ -5,19 +5,26 @@ import android.os.Parcelable
 
 data class Room(
     var id: String? = "",
+    var userAdmin: String? = "",
     var nameDisplay: String? = "",
-    var deviceId: String? = ""
+    var ipAddress: String? = "",
+    var role: Boolean? = false //false: private, true: common
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readString(),
-        parcel.readString()
-    )
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readValue(Boolean::class.java.classLoader) as? Boolean
+    ) {
+    }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(id)
+        parcel.writeString(userAdmin)
         parcel.writeString(nameDisplay)
-        parcel.writeString(deviceId)
+        parcel.writeString(ipAddress)
+        parcel.writeValue(role)
     }
 
     override fun describeContents(): Int {
@@ -33,6 +40,7 @@ data class Room(
             return arrayOfNulls(size)
         }
     }
+
 }
 //Client Control Map Structure: ClientId, Validate?
 

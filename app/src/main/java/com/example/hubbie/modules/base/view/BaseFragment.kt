@@ -12,13 +12,24 @@
 package com.example.hubbie.modules.base.view
 
 import androidx.fragment.app.Fragment
-import com.example.hubbie.dialog.LoadingFragment
 import com.example.hubbie.modules.base.BaseContract
+import com.example.hubbie.modules.dialog.LoadingFragment
+import com.example.hubbie.modules.dialog.MessageDialogFragment
 
 /**
  * Created by trangpham on 16/8/2019.
  */
-abstract class BaseFragment : Fragment(), BaseContract.BaseView {
+open class BaseFragment : Fragment(), BaseContract.BaseView, BaseContract.MessageDialogCallbacks {
+
+    override fun showProcessLoading(message: String) {
+
+    }
+
+    private var dialog: MessageDialogFragment? = null
+
+    override fun dismissProcessLoading() {
+
+    }
 
     private var loadingFragment: LoadingFragment? = null
 
@@ -30,7 +41,9 @@ abstract class BaseFragment : Fragment(), BaseContract.BaseView {
 
     override fun showLoading() {
         if (loadingFragment == null) {
-            loadingFragment = LoadingFragment()
+            loadingFragment = LoadingFragment().apply {
+                isCancelable = false
+            }
             fragmentManager?.beginTransaction()
                 ?.add(loadingFragment as Fragment, LoadingFragment::class.java.simpleName)
                 ?.commitAllowingStateLoss()
@@ -38,7 +51,40 @@ abstract class BaseFragment : Fragment(), BaseContract.BaseView {
     }
 
     override fun dismissLoading() {
-        loadingFragment?.dismissAllowingStateLoss()
+        loadingFragment?.dismiss()
         loadingFragment = null
+    }
+
+    override fun showMessage(
+        title: String,
+        message: String,
+        neutralText: String
+    ) {
+        dialog = MessageDialogFragment.newInstance(title, message, neutralText, this)
+        dialog?.isCancelable = false
+        fragmentManager?.beginTransaction()?.add(
+            (dialog as Fragment),
+            MessageDialogFragment::class.java.simpleName
+        )?.commit()
+    }
+
+    override fun showMessage(
+        title: String,
+        message: String,
+        negativeText: String,
+        positiveText: String
+    ) {
+        dialog = MessageDialogFragment.newInstance(title, message, negativeText, positiveText, this)
+        dialog?.isCancelable = false
+        fragmentManager?.beginTransaction()?.add(
+            (dialog as Fragment),
+            MessageDialogFragment::class.java.simpleName
+        )?.commit()
+    }
+
+    override fun dismissMessage() {
+        if (dialog != null) {
+            dialog?.dismiss()
+        }
     }
 }

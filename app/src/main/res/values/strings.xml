@@ -25,4 +25,7 @@
     <string name="room_admin">roomAdmin</string>
     <string name="client">client</string>
 
+    <string name="configure_result_success">EspTouch Success</string>
+    <string name="configure_result_success_item">BSSID = %1$s, InetAddress = %2$s</string>
+
 </resources>
