@@ -6,8 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hubbie.R
+import com.example.hubbie.entities.DeviceSorted
 
-class PortIdAdapter(private val data: ArrayList<Pair<String, String>>, private val listener: Callbacks) : RecyclerView.Adapter<PortIdAdapter.DataViewHolder>() {
+class PortIdAdapter(private val data: ArrayList<DeviceSorted>, private val listener: Callbacks) : RecyclerView.Adapter<PortIdAdapter.DataViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
         return DataViewHolder(
             LayoutInflater.from(parent.context).inflate(
@@ -24,8 +26,8 @@ class PortIdAdapter(private val data: ArrayList<Pair<String, String>>, private v
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
 
-        holder.tvFirstValue.text = data[position].first
-        holder.tvSecondValue.text = data[position].second
+        holder.tvFirstValue.text = data[position].macAddress
+        holder.tvSecondValue.text = data[position].roomName
         holder.itemView.setOnClickListener {
             holder.bindItemClick(position, listener)
         }

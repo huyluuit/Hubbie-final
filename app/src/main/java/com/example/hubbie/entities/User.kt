@@ -52,5 +52,9 @@ data class User(
             return arrayOfNulls(size)
         }
     }
-
 }
+
+data class BaseUser(
+    var nameDisplay: String? = "",
+    var uid: String? = ""
+)

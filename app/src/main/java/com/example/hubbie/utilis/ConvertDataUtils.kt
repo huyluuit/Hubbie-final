@@ -1,9 +1,6 @@
 package com.example.hubbie.utilis
 
-import com.example.hubbie.entities.Device
-import com.example.hubbie.entities.DeviceSorted
-import com.example.hubbie.entities.Message
-import com.example.hubbie.entities.User
+import com.example.hubbie.entities.*
 
 object ConvertDataUtils {
 
@@ -59,7 +56,24 @@ object ConvertDataUtils {
         }
 
         return deviceSorted
+    }
 
+    fun convertDataToRoom(data: Map<String, Any>?): Room {
+        val room = Room()
+
+        if (data != null) {
+            val id: String? = data["id"].toString();
+            val userAdmin: String? = data["userAdmin"].toString()
+            val nameDisplay: String? = data["nameDisplay"].toString()
+            val ipAddress: String? = data["ipAddress"].toString()
+            val role: Boolean? = data["role"] as Boolean
+            room.id = id
+            room.userAdmin = userAdmin
+            room.nameDisplay = nameDisplay
+            room.ipAddress = ipAddress
+            room.role = role
+        }
+        return room
     }
 
     fun convertDataToDevice(data: Map<String, Any>?): Device {

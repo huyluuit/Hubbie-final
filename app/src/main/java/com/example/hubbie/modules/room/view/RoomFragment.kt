@@ -15,6 +15,7 @@ import com.example.hubbie.modules.dialog.AddRoomFragmentDialog
 import com.example.hubbie.modules.main.IMain
 import com.example.hubbie.modules.room.IRoom
 import com.example.hubbie.modules.room.presenter.RoomPresenter
+import com.example.hubbie.utilis.firestore.FirestoreRoomUtil
 
 class RoomFragment(private val mainCallbacks: IMain.View?) : BaseFragment(), IRoom.View,
     RoomAdapter.OnItemClickListener, AddRoomFragmentDialog.EditRoomDialogCallbacks {
@@ -23,6 +24,7 @@ class RoomFragment(private val mainCallbacks: IMain.View?) : BaseFragment(), IRo
     private var roomAdapter: RoomAdapter? = null
     private var presenter: RoomPresenter? = null
     private lateinit var rvRoomList: RecyclerView
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,14 +36,11 @@ class RoomFragment(private val mainCallbacks: IMain.View?) : BaseFragment(), IRo
         presenter = RoomPresenter(this)
         presenter?.setView(this)
         presenter?.getBaseRooms()
+        presenter?.doRoomLisenter()
         rvRoomList = v.findViewById(R.id.rvRoom)
         rvRoomList.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         return v
-    }
-
-    override fun createRoomClicked() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun setBaseRoom(roomList: ArrayList<Room>) {
@@ -67,9 +66,16 @@ class RoomFragment(private val mainCallbacks: IMain.View?) : BaseFragment(), IRo
     }
 
     override fun onEditRoom(position: Int) {
+        val dialog = AddRoomFragmentDialog.newInstance(
+            roomList[position],
+            this,
+            mainCallbacks!!.getBaseUserList(),
+            mainCallbacks.getBaseDeviceList()
+        )
+        dialog.isCancelable = false
         fragmentManager?.beginTransaction()
             ?.add(
-                AddRoomFragmentDialog.newInstance(roomList[position], this) as Fragment,
+                dialog as Fragment,
                 AddRoomFragmentDialog::class.java.simpleName
             )
             ?.commitAllowingStateLoss()
@@ -79,12 +85,20 @@ class RoomFragment(private val mainCallbacks: IMain.View?) : BaseFragment(), IRo
         roomAdapter?.notifyItemChanged(position)
     }
 
+    override fun onRoomAdded(position: Int) {
+        roomAdapter?.notifyItemInserted(position)
+    }
+
+    override fun onRoomRemoved(position: Int) {
+        roomAdapter?.notifyItemRemoved(position)
+    }
+
     override fun onDeleteRoom(room: Room) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        FirestoreRoomUtil.deleteRoom(room.id ?: "")
     }
 
     override fun onSaveRoom(room: Room) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        FirestoreRoomUtil.setRoom(room)
     }
 
 }

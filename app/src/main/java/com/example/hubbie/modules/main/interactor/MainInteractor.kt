@@ -2,9 +2,11 @@ package com.example.hubbie.modules.main.interactor
 
 import android.content.Context
 import android.util.Log
+import com.example.hubbie.entities.DeviceSorted
 import com.example.hubbie.entities.Room
 import com.example.hubbie.entities.shared.AccountPreferences
 import com.example.hubbie.modules.main.IMain
+import com.example.hubbie.utilis.firestore.FirestoreRoomUtil
 import com.example.hubbie.utilis.firestore.FirestoreUserUtil
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -20,7 +22,25 @@ class MainInteractor(
     private val compositeDisposable = CompositeDisposable()
 
     override fun addNewRoom(room: Room) {
+        //private
 
+        val deviceSorted = DeviceSorted(room.id ?: "", room.ipAddress ?: "", room.nameDisplay ?: "")
+        val roomDisposable = FirestoreRoomUtil.setRoom(room).subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread()).subscribeBy(
+                onComplete = {
+
+                },
+                onError = {
+
+                }
+            )
+
+        if(room.role?:false){
+
+        }else{
+            FirestoreUserUtil.setUserRoomRole(room.userAdmin ?: "", deviceSorted)
+        }
+        compositeDisposable.add(roomDisposable)
     }
 
     override fun doAccountChangeListener(userId: String) {

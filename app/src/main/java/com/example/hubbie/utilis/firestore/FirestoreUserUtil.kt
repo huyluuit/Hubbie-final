@@ -1,6 +1,7 @@
 package com.example.hubbie.utilis.firestore
 
 import android.util.Log
+import com.example.hubbie.entities.DeviceSorted
 import com.example.hubbie.entities.User
 import com.example.hubbie.utilis.ConvertDataUtils
 import com.google.android.gms.tasks.Task
@@ -22,6 +23,12 @@ object FirestoreUserUtil {
      User(C) > User_Id(D) > RoomControl(C) > Room_Id(D) > RoomUser_Object: roomId: String?
                                                                            activate: Boolean?
      */
+
+    fun setUserRoomRole(userId: String, deviceSorted: DeviceSorted) {
+        db.document(userId).update("role", "roomAdmin")
+        db.document(userId).collection("DeviceList").document(deviceSorted.macAddress)
+            .set(deviceSorted)
+    }
 
     fun getUser(userId: String): Single<User> {
         return Single.create {

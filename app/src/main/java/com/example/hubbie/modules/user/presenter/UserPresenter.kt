@@ -1,6 +1,6 @@
 package com.example.hubbie.modules.user.presenter
 
-import android.util.Log
+import com.example.hubbie.entities.BaseUser
 import com.example.hubbie.entities.User
 import com.example.hubbie.entities.shared.AccountPreferences
 import com.example.hubbie.modules.user.IUser
@@ -33,6 +33,7 @@ class UserPresenter(private val framgent: UserFragment) : IUser.Presenter,
         }
         userList.set(p, item)
         view?.onUserUpdate(p)
+        view?.onBaseUserList(baseUserList())
     }
 
     override fun onAddUserItem(item: User) {
@@ -50,11 +51,21 @@ class UserPresenter(private val framgent: UserFragment) : IUser.Presenter,
         }
         userList.remove(item)
         view?.onUserDelete(p)
+        view?.onBaseUserList(baseUserList())
     }
 
     override fun onBaseUser(baseUser: ArrayList<User>) {
         this.userList.addAll(baseUser)
         view?.setBaseUser(this.userList)
+        view?.onBaseUserList(baseUserList())
+    }
+
+    fun baseUserList(): ArrayList<BaseUser> {
+        val baseUserList = ArrayList<BaseUser>()
+        for (item in userList) {
+            baseUserList.add(BaseUser(item.fullName, item.uid))
+        }
+        return baseUserList
     }
 
     override fun getAllUsers() {

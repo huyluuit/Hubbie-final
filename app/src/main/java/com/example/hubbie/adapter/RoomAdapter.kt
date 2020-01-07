@@ -1,5 +1,6 @@
 package com.example.hubbie.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,7 @@ class RoomAdapter(private val data: ArrayList<Room>, private val listener: OnIte
     }
 
     override fun getItemCount(): Int {
+        Log.e("RoomSize", "Size: " + data)
         return data.size
     }
 

@@ -17,10 +17,6 @@ class LoginPresenter(private val fragment: LoginFragment) : ILogin.Presenter, IL
 
     override fun onLoginComplete(result: Pair<Boolean, String>) {
         if (result.first) {
-            GeneralUtils.showingToast(
-                fragment.context?.applicationContext,
-                fragment.context?.getString(R.string.login_success)
-            )
             interactor?.getUserFromFB(result.second)
         } else {
             fragment.dismissLoading()

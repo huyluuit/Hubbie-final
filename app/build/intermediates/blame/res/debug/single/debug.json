@@ -56,12 +56,12 @@
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\a3616dee39a2110b273acea84183d182\\browser-1.0.0\\res\\layout\\browser_actions_context_menu_row.xml"
     },
     {
-        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "D:\\Projects\\Hubbie\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
-    },
-    {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\72fed70f991a6e5ae6fc40bb55568496\\appcompat-1.1.0\\res\\drawable-xxxhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "D:\\Projects\\Hubbie\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
@@ -72,12 +72,12 @@
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\723cba1f6c69866cfaa394f68ea4ec2f\\firebase-inappmessaging-display-19.0.1\\res\\drawable-hdpi-v4\\image_placeholder.png"
     },
     {
-        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable_mtrl_tabs_default_indicator.xml.flat",
-        "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\65d098364c2861661260612a8aae1a1b\\material-1.0.0\\res\\drawable\\mtrl_tabs_default_indicator.xml"
-    },
-    {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_icon_group.xml.flat",
         "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\33e4044b3f2121bb3136bcee560286e7\\core-1.1.0\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable_mtrl_tabs_default_indicator.xml.flat",
+        "source": "C:\\Users\\test-\\.gradle\\caches\\transforms-2\\files-2.1\\65d098364c2861661260612a8aae1a1b\\material-1.0.0\\res\\drawable\\mtrl_tabs_default_indicator.xml"
     },
     {
         "merged": "D:\\Projects\\Hubbie\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_register.png.flat",

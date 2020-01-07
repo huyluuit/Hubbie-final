@@ -50,7 +50,7 @@ class MainPresenter(private val fragment: MainFragment) : Presenter, Interactor.
     }
 
     override fun onNewRoomCreated(room: Room) {
-
+        interactor?.addNewRoom(room)
     }
 
     override fun onItemRoomClicked(room: Room) {

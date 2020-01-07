@@ -1,8 +1,6 @@
 package com.example.hubbie.modules.main
 
-import com.example.hubbie.entities.Device
-import com.example.hubbie.entities.Room
-import com.example.hubbie.entities.User
+import com.example.hubbie.entities.*
 import com.example.hubbie.modules.base.BaseContract
 
 interface IMain {
@@ -42,5 +40,9 @@ interface IMain {
         fun onUserItemClicked(user: User)
         fun onDeviceItemClicked(device: Device)
         fun accountActiveChangeState(result: Boolean)
+        fun onBaseUserList(baseUserList: ArrayList<BaseUser>)
+        fun onBaseDeviceList(baseDeviceSortedList: ArrayList<DeviceSorted>)
+        fun getBaseUserList(): ArrayList<BaseUser>
+        fun getBaseDeviceList(): ArrayList<DeviceSorted>
     }
 }

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hubbie.R
 import com.example.hubbie.adapter.UserAdapter
+import com.example.hubbie.entities.BaseUser
 import com.example.hubbie.entities.User
 import com.example.hubbie.modules.base.view.BaseFragment
 import com.example.hubbie.modules.dialog.FragmentUserDetailDialog
@@ -41,12 +42,14 @@ class UserFragment(private val listener: IMain.View) : BaseFragment(), UserAdapt
     }
 
     override fun onRoleClick(position: Int) {
-        Log.e("HuyHuy", "OnRoleClick: $position")
         showMessage("Thông tin người dùng", "Vai trò: " + userList[position].role, "OK")
     }
 
+    override fun onBaseUserList(baseUserList: ArrayList<BaseUser>) {
+        listener.onBaseUserList(baseUserList)
+    }
+
     override fun onUserInfoClick(position: Int) {
-        Log.e("HuyHuy", "OnUserInFoClick: $position")
         val dialog = FragmentUserDetailDialog(userList[position])
         fragmentManager?.beginTransaction()
             ?.add(dialog as Fragment, FragmentUserDetailDialog::class.java.simpleName)
@@ -54,7 +57,6 @@ class UserFragment(private val listener: IMain.View) : BaseFragment(), UserAdapt
     }
 
     override fun onLogClick(position: Int) {
-        Log.e("HuyHuy", "OnLogClick: $position")
         listener.onUserItemClicked(userList[position])
     }
 
@@ -65,7 +67,6 @@ class UserFragment(private val listener: IMain.View) : BaseFragment(), UserAdapt
     override fun setBaseUser(userList: ArrayList<User>) {
         this.userList = userList
         userAdapter = UserAdapter(this.userList, this)
-        Log.e("HuyHuy", "Presenter: " + this.userList)
         rvUserList.adapter = userAdapter
         rvUserList.setHasFixedSize(true)
         presenter?.doUserListChangeListener()

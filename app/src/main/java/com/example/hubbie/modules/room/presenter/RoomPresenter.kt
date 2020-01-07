@@ -18,26 +18,16 @@ class RoomPresenter(private val fragment: RoomFragment) : BaseContract.BasePrese
         this.view = view
     }
 
-    override fun onSw1StateChange(position: Int, result: Boolean) {
-        interactor?.onSw1Change(roomList[position].deviceId.toString(), result)
+    override fun doRoomLisenter() {
+        interactor?.doRoomChangeListener()
     }
 
-    override fun onSw2StateChange(position: Int, result: Boolean) {
-        interactor?.onSw2Change(roomList[position].deviceId.toString(), result)
+    override fun onRoomAdded(room: Room) {
+        roomList.add(room)
+        view?.onRoomAdded(roomList.lastIndex)
     }
 
-    override fun onSw3StateChange(position: Int, result: Boolean) {
-        interactor?.onSw3Change(roomList[position].deviceId.toString(), result)
-    }
-
-    override fun onItemCliked(position: Int) {
-        router?.navigateToRoomDetail(roomList[position])
-    }
-
-    override fun itemControlClicked(controlId: Int) {
-    }
-
-    override fun onRoomChange(room: Room) {
+    override fun onRoomUpdated(room: Room) {
         var p = 0
         for (item in roomList) {
             if (room.id == item.id) {
@@ -49,12 +39,47 @@ class RoomPresenter(private val fragment: RoomFragment) : BaseContract.BasePrese
         view?.onRoomChange(p)
     }
 
+    override fun onRoomRemoved(room: Room) {
+        var p = 0
+        for (item in roomList) {
+            if (room.id == item.id) {
+                break;
+            }
+            p++;
+        }
+        roomList.remove(room)
+        view?.onRoomChange(p)
+    }
+
+    override fun onSw1StateChange(position: Int, result: Boolean) {
+        interactor?.onSw1Change(roomList[position].id.toString(), result)
+    }
+
+    override fun onSw2StateChange(position: Int, result: Boolean) {
+        interactor?.onSw2Change(roomList[position].id.toString(), result)
+    }
+
+    override fun onSw3StateChange(position: Int, result: Boolean) {
+        interactor?.onSw3Change(roomList[position].id.toString(), result)
+    }
+
+    override fun onItemCliked(position: Int) {
+        router?.navigateToRoomDetail(roomList[position])
+    }
+
+    override fun itemControlClicked(controlId: Int) {
+    }
+
     override fun onEditRoomClicked(position: Int) {
 
     }
 
     override fun onBaseRoom(roomList: ArrayList<Room>) {
-        this.roomList.addAll(roomList)
+        for (item in roomList) {
+            if ((item.id ?: "").isNotEmpty()) {
+                this.roomList.add(item)
+            }
+        }
         view?.setBaseRoom(this.roomList)
     }
 
@@ -63,7 +88,7 @@ class RoomPresenter(private val fragment: RoomFragment) : BaseContract.BasePrese
     }
 
     override fun onDestroy() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        interactor = null
     }
 
 }

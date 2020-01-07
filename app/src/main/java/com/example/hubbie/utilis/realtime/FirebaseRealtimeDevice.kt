@@ -18,8 +18,8 @@ object FirebaseRealtimeDevice {
 
     fun getBaseDevice(deviceIdList: ArrayList<String>): Single<ArrayList<Device>> {
         return Single.create {
+            val deviceList = ArrayList<Device>()
             for (deviceId in deviceIdList) {
-                val deviceList = ArrayList<Device>()
                 ref.child(deviceId).addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onCancelled(p0: DatabaseError) {
 
@@ -62,7 +62,7 @@ object FirebaseRealtimeDevice {
                     val device = p0.getValue(Device::class.java)
                     if (device != null) {
                         it.onSuccess(device)
-                    }else{
+                    } else {
                         Log.e("GetDevice", "Device is null!")
                     }
                 }
@@ -73,6 +73,18 @@ object FirebaseRealtimeDevice {
 
             })
         }
+    }
+
+    fun setPortStateA(deviceId: String, state: Boolean) {
+        ref.child(deviceId).child("portAState").setValue(state)
+    }
+
+    fun setPortStateB(deviceId: String, state: Boolean) {
+        ref.child(deviceId).child("portBState").setValue(state)
+    }
+
+    fun setPortStateC(deviceId: String, state: Boolean) {
+        ref.child(deviceId).child("portCState").setValue(state)
     }
 
     fun doDeviceChangeListener(deviceId: String): Observable<Device> {

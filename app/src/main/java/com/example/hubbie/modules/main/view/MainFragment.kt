@@ -18,9 +18,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import com.example.hubbie.R
 import com.example.hubbie.adapter.SectionsPagerAdapter
-import com.example.hubbie.entities.Device
-import com.example.hubbie.entities.Room
-import com.example.hubbie.entities.User
+import com.example.hubbie.entities.*
 import com.example.hubbie.entities.shared.AccountPreferences
 import com.example.hubbie.modules.base.view.BaseFragment
 import com.example.hubbie.modules.dialog.AddRoomFragmentDialog
@@ -32,10 +30,16 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.fragment_main.view.*
-import kotlinx.android.synthetic.main.nav_header.view.*
 
 class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChangeListener,
     DrawerLayout.DrawerListener, AddRoomFragmentDialog.EditRoomDialogCallbacks, IMain.View {
+    override fun getBaseDeviceList(): ArrayList<DeviceSorted> {
+        return baseDeviceSortedList
+    }
+
+    override fun getBaseUserList(): ArrayList<BaseUser> {
+        return baseUserList
+    }
 
     private lateinit var mDrawerLayout: DrawerLayout
 
@@ -60,10 +64,14 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
     private lateinit var fabTvAdd: TextView
     private lateinit var tvUserNameDisplay: TextView
     private lateinit var prevMenu: MenuItem
+    private var baseDeviceSortedList = ArrayList<DeviceSorted>()
+    private var baseUserList = ArrayList<BaseUser>()
 
     private lateinit var mSectionsPagerAdapter: SectionsPagerAdapter
     private var isInitial = false
 
+    private var isBaseUserHad = false
+    private var isBaseDeviceHad = false
     private var presenter: MainPresenter? = null
 
     override fun onDrawerStateChanged(newState: Int) {
@@ -194,6 +202,25 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
         }
     }
 
+    override fun onBaseUserList(baseUserList: ArrayList<BaseUser>) {
+        this.baseUserList = baseUserList
+        isBaseUserHad = true
+        if (isBaseDeviceHad) {
+            dismissLoading()
+        }
+        Log.e("HuyHuy", "BaseUser: $baseUserList")
+    }
+
+    override fun onBaseDeviceList(baseDeviceSortedList: ArrayList<DeviceSorted>) {
+        this.baseDeviceSortedList = baseDeviceSortedList
+        isBaseDeviceHad = true
+        if (isBaseUserHad) {
+            dismissLoading()
+        }
+        Log.e("HuyHuy", "BaseDevice: $baseDeviceSortedList")
+    }
+
+    @SuppressLint("RestrictedApi")
     private fun initialView(v: View, role: String) {
 
         SubsSetup(v) //Toolbar - NavigationLayout - Titile setup
@@ -205,6 +232,8 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
         //Check role
         when (role) {
             getString(R.string.admin) -> {
+                fabMenu.visibility = View.VISIBLE
+                showLoading()
                 mSectionsPagerAdapter =
                     SectionsPagerAdapter(fragmentManager!!, 3, this)
             }
@@ -261,7 +290,7 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
         tvTitle = mToolbar.findViewById(
             R.id.main_toolbar_title
         )
-        mToolbar.ibMenu.setOnClickListener{
+        mToolbar.ibMenu.setOnClickListener {
             mDrawerLayout.openDrawer(GravityCompat.START)
         }
         mDrawerLayout = view.findViewById(R.id.main_drawer_layout)
@@ -280,7 +309,8 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
 
     private fun NavigationViewSetup(view: View) {
         mNavigationView = view.findViewById(R.id.main_nav_view)
-        tvUserNameDisplay = mNavigationView.inflateHeaderView(R.layout.nav_header).findViewById(R.id.tvUserNameDisplay)
+        tvUserNameDisplay = mNavigationView.inflateHeaderView(R.layout.nav_header)
+            .findViewById(R.id.tvUserNameDisplay)
         tvUserNameDisplay.setText(AccountPreferences(context!!).getBaseAccount().fullName)
         mNavigationView.setNavigationItemSelectedListener { p0: MenuItem ->
             // set item as selected to persist highlight
@@ -358,6 +388,7 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
     }
 
     override fun onSaveRoom(room: Room) {
+        Log.e("HuyHuy", "New Room: " + room)
         presenter?.onNewRoomCreated(room)
     }
 
@@ -374,7 +405,11 @@ class MainFragment : BaseFragment(), View.OnClickListener, ViewPager.OnPageChang
                     //Room
                     0 -> {
                         fragmentManager?.beginTransaction()?.add(
-                            AddRoomFragmentDialog.newInstance(this) as Fragment,
+                            AddRoomFragmentDialog.newInstance(
+                                this,
+                                baseUserList,
+                                baseDeviceSortedList
+                            ) as Fragment,
                             AddRoomFragmentDialog::class.java.simpleName
                         )?.commitAllowingStateLoss()
                     }

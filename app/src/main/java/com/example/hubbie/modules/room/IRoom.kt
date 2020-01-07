@@ -3,6 +3,7 @@ package com.example.hubbie.modules.room
 import com.example.hubbie.entities.Control
 import com.example.hubbie.entities.Room
 import com.example.hubbie.entities.User
+import com.example.hubbie.modules.base.BaseContract
 import java.util.*
 import kotlin.collections.ArrayList
 
@@ -17,16 +18,20 @@ interface IRoom {
         fun onItemCliked(position: Int)
         fun onEditRoomClicked(position: Int)
         fun getBaseRooms()
+        fun doRoomLisenter()
     }
 
-    interface Interactor {
+    interface Interactor :BaseContract.BaseInteractor{
         fun getBaseRooms()
+        fun doRoomChangeListener()
         fun onSw1Change(deviceId: String, state: Boolean)
         fun onSw2Change(deviceId: String, state: Boolean)
         fun onSw3Change(deviceId: String, state: Boolean)
         interface Callbacks{
             fun onBaseRoom(roomList: ArrayList<Room>)
-            fun onRoomChange(room: Room)
+            fun onRoomAdded(room: Room)
+            fun onRoomUpdated(room: Room)
+            fun onRoomRemoved(room: Room)
         }
     }
 
@@ -37,8 +42,9 @@ interface IRoom {
     }
 
     interface View {
-        fun createRoomClicked()
         fun setBaseRoom(roomList: ArrayList<Room>)
         fun onRoomChange(position: Int)
+        fun onRoomAdded(position: Int)
+        fun onRoomRemoved(position: Int)
     }
 }

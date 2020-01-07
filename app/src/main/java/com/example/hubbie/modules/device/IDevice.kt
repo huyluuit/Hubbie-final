@@ -1,6 +1,7 @@
 package com.example.hubbie.modules.device
 
 import com.example.hubbie.entities.Device
+import com.example.hubbie.entities.DeviceSorted
 import com.example.hubbie.modules.base.BaseContract
 
 interface IDevice {
@@ -14,7 +15,7 @@ interface IDevice {
         fun getAllDevice()
         fun doDeviceChangeListener()
         interface Callbacks {
-            fun onBaseDevice(deviceList: ArrayList<Device>)
+            fun onBaseDevice(deviceList: Pair<ArrayList<Device>, ArrayList<DeviceSorted>>)
             fun onNewDevice(device: Device)
             fun onUpdatedDevice(device: Device)
             fun onRemovedDevice(device: Device)
@@ -26,5 +27,6 @@ interface IDevice {
         fun onNewDevie(position: Int)
         fun onUpdatedDevice(position: Int)
         fun onRemovedDevice(position: Int)
+        fun onBaseDeviceSorted(deviceSorted: ArrayList<DeviceSorted>)
     }
 }

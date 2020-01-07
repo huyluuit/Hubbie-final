@@ -54,6 +54,7 @@
 
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/host_fab_menu"
+                        android:visibility="gone"
                         android:layout_margin="6dp"
                         android:src="@drawable/ic_add"
                         android:scaleType="center"

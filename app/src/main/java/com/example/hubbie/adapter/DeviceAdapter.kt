@@ -7,8 +7,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hubbie.R
 import com.example.hubbie.entities.Device
+import com.example.hubbie.entities.DeviceSorted
 
-class DeviceAdapter(private val data: ArrayList<Device>, private val listener: OnItemClick) :
+class DeviceAdapter(
+    private val data: ArrayList<Device>,
+    private val deviceSorted: ArrayList<DeviceSorted>,
+    private val listener: OnItemClick
+) :
     RecyclerView.Adapter<DeviceAdapter.DataViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
@@ -32,6 +37,7 @@ class DeviceAdapter(private val data: ArrayList<Device>, private val listener: O
         holder.tvDeviceId.text = data[position].id
         holder.tvTemp.text = "NHIỆT ĐỘ: " + data[position].temp.toString() + "°C"
         holder.tvTotalPower.text = "CÔNG SUẤT: " + data[position].totalPower.toString() + "W"
+        holder.tvRoomNameBelong.text = "VỊ TRÍ: " + deviceSorted[position].roomName
     }
 
 
@@ -48,13 +54,13 @@ class DeviceAdapter(private val data: ArrayList<Device>, private val listener: O
             tvRoomNameBelong = itemView.findViewById(R.id.tvRoomNameBelongDevice)
         }
 
-        fun bindOnItemClick(position: Int, listener: OnItemClick){
+        fun bindOnItemClick(position: Int, listener: OnItemClick) {
             listener.onItemClick(position)
         }
 
     }
 
-    interface OnItemClick{
+    interface OnItemClick {
         fun onItemClick(position: Int)
     }
 

@@ -3,6 +3,7 @@ package com.example.hubbie.utilis.firestore
 import android.util.Log
 import com.example.hubbie.entities.Device
 import com.example.hubbie.entities.DeviceSorted
+import com.example.hubbie.utilis.ConvertDataUtils
 import com.example.hubbie.utilis.realtime.FirebaseRealtimeDevice
 import com.google.firebase.firestore.DocumentChange
 import com.google.firebase.firestore.FirebaseFirestore
@@ -27,16 +28,18 @@ object FirestoreDeviceUtil {
 
                     if (task.isSuccessful && task.result != null) {
                         val result = ArrayList<String>()
+                        val deviceSortedList = ArrayList<DeviceSorted>()
                         result.clear()
                         for (item in task.result!!.documents) {
                             val deviceSorted = item.data!!["macAddress"].toString()
+                            deviceSortedList.add(ConvertDataUtils.convertDataToDeviceSort(item.data))
                             result.add(deviceSorted)
                         }
                         Log.e("HuyHuy", "DeviceList: $result")
                         FirebaseRealtimeDevice.getBaseDevice(result)
                             .observeOn(AndroidSchedulers.mainThread()).subscribeBy(
                                 onSuccess = { it2 ->
-                                    it.onSuccess(it2)
+                                    it.onSuccess(Pair(it2, deviceSortedList))
                                 }
                             )
                     } else {
@@ -61,7 +64,6 @@ object FirestoreDeviceUtil {
                     }
                 }
         }
-
     }
 
     private var isFirstRun = false

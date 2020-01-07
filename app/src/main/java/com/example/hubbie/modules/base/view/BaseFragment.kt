@@ -41,7 +41,9 @@ open class BaseFragment : Fragment(), BaseContract.BaseView, BaseContract.Messag
 
     override fun showLoading() {
         if (loadingFragment == null) {
-            loadingFragment = LoadingFragment()
+            loadingFragment = LoadingFragment().apply {
+                isCancelable = false
+            }
             fragmentManager?.beginTransaction()
                 ?.add(loadingFragment as Fragment, LoadingFragment::class.java.simpleName)
                 ?.commitAllowingStateLoss()
@@ -49,7 +51,7 @@ open class BaseFragment : Fragment(), BaseContract.BaseView, BaseContract.Messag
     }
 
     override fun dismissLoading() {
-        loadingFragment?.dismissAllowingStateLoss()
+        loadingFragment?.dismiss()
         loadingFragment = null
     }
 
@@ -61,7 +63,7 @@ open class BaseFragment : Fragment(), BaseContract.BaseView, BaseContract.Messag
         dialog = MessageDialogFragment.newInstance(title, message, neutralText, this)
         dialog?.isCancelable = false
         fragmentManager?.beginTransaction()?.add(
-            (dialog as Fragment) ,
+            (dialog as Fragment),
             MessageDialogFragment::class.java.simpleName
         )?.commit()
     }
@@ -75,13 +77,13 @@ open class BaseFragment : Fragment(), BaseContract.BaseView, BaseContract.Messag
         dialog = MessageDialogFragment.newInstance(title, message, negativeText, positiveText, this)
         dialog?.isCancelable = false
         fragmentManager?.beginTransaction()?.add(
-            (dialog as Fragment) ,
+            (dialog as Fragment),
             MessageDialogFragment::class.java.simpleName
         )?.commit()
     }
 
     override fun dismissMessage() {
-        if(dialog != null){
+        if (dialog != null) {
             dialog?.dismiss()
         }
     }

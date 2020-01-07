@@ -1,6 +1,7 @@
 package com.example.hubbie.modules.device.presenter
 
 import com.example.hubbie.entities.Device
+import com.example.hubbie.entities.DeviceSorted
 import com.example.hubbie.modules.device.IDevice
 import com.example.hubbie.modules.device.interactor.DeviceInteractor
 import com.example.hubbie.modules.device.view.DeviceFragment
@@ -29,9 +30,10 @@ class DevicePresenter(private val fragment: DeviceFragment) : IDevice.Presenter,
         interactor = null
     }
 
-    override fun onBaseDevice(deviceList: ArrayList<Device>) {
-        this.deviceList.addAll(deviceList)
+    override fun onBaseDevice(deviceList: Pair<ArrayList<Device>, ArrayList<DeviceSorted>>) {
+        this.deviceList.addAll(deviceList.first)
         view?.setBaseDevice(this.deviceList)
+        view?.onBaseDeviceSorted(deviceList.second)
     }
 
     override fun onNewDevice(device: Device) {
